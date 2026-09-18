@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-blackletter: 'UnifrakturMaguntia', serif;
+    --font-pirata: 'Pirata One', cursive;
+    --font-display: 'Cinzel', serif;
+    --font-cinzel-dec: 'Cinzel Decorative', serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Space Mono', 'Plus Jakarta Sans', monospace;
+    --font-mono: 'Space Mono', 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050507;
+    color: #ded8cf;
+    overflow-x: hidden;
+  }
+}
+
+.font-blackletter {
+  font-family: 'UnifrakturMaguntia', serif;
+}
+
+.font-pirata {
+  font-family: 'Pirata One', cursive;
+}
+
+.font-cinzel-dec {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+}
+
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+
+.font-serif-gothic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'Space Mono', 'JetBrains Mono', monospace;
+}
+
+/* Y2K Liquid Chrome Text & Metallic Glint */
+.chrome-text {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f1f5f9 20%,
+    #cbd5e1 45%,
+    #64748b 52%,
+    #94a3b8 70%,
+    #f8fafc 90%,
+    #e2e8f0 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.15));
+}
+
+.chrome-silver-text {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e2e8f0 35%,
+    #94a3b8 50%,
+    #475569 51%,
+    #cbd5e1 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chrome-gold-text {
+  background: linear-gradient(
+    180deg,
+    #fff8e7 0%,
+    #eedc9a 30%,
+    #c5a059 50%,
+    #7a5e20 51%,
+    #d4af37 75%,
+    #fff2cc 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cologne Cathedral Soot Black & Spires Architectural Depth */
+.cathedral-card {
+  background: linear-gradient(180deg, #0f1016 0%, #08090d 100%);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.95),
+              0 0 30px -10px rgba(99, 102, 241, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cathedral-card:hover {
+  border-color: rgba(226, 232, 240, 0.35);
+  box-shadow: 0 30px 65px -15px rgba(0, 0, 0, 0.98),
+              0 0 35px -5px rgba(197, 160, 89, 0.16),
+              0 0 20px -5px rgba(148, 163, 184, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Lancet Arch (Gothic Pointed Arch) Header Card */
+.lancet-arch-frame {
+  position: relative;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: radial-gradient(circle at 50% 0%, #151622 0%, #08090d 70%);
+}
+
+/* Y2K Dark Matrix Scanlines Overlay */
+.y2k-scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.3)
+  );
+  background-size: 100% 4px;
+}
+
+/* Stained Glass Glow / Cologne Cathedral Ambient Aura */
+.cathedral-glow-cold {
+  text-shadow: 0 0 25px rgba(147, 197, 253, 0.35), 0 0 50px rgba(99, 102, 241, 0.2);
+}
+
+.cathedral-glow-gold {
+  text-shadow: 0 0 20px rgba(197, 160, 89, 0.45);
+}
+
+/* Cologne Cathedral Rib Vault Grid */
+.cologne-spire-pattern {
+  background-image: 
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Custom Gothic scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e212b;
+  border-radius: 2px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styles for CV export */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .cathedral-card, .gothic-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    color: #111111 !important;
+  }
+  .chrome-text, .chrome-silver-text, .chrome-gold-text {
+    -webkit-text-fill-color: #111111 !important;
+  }
+  .text-stone-400, .text-[#a39e93] {
+    color: #555555 !important;
+  }
+  .bg-[#050507], .bg-[#08080a], .bg-[#0e0e13] {
+    background: #ffffff !important;
+  }
+}
