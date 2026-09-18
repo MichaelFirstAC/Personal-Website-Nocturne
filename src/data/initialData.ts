@@ -1,176 +1,332 @@
 import { ProfileInfo, Project, SkillCategory, ExperienceRole, Accreditation } from '../types';
 
 export const initialProfile: ProfileInfo = {
-  name: 'Valerius Mordecai Vance',
+  name: 'Michael Arianno Chandrarieta',
   monogram: 'MAC',
   latinMotto: 'In Tenebris Lux Architecturae',
-  title: 'Principal Systems Architect & Cryptographic Engineer',
-  epithet: 'Orchestrator of High-Throughput Relics & Distributed Fault-Tolerant Citadels',
+  title: 'Computer Science Student & Full-Stack Developer',
+  epithet: 'Game Developer · Web Engineer · Data Science Enthusiast',
   bioSummary:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'A Computer Science student at BINUS International, Jakarta — passionate about building things across Game Development, Web Development, and Data Science. I enjoy turning complex ideas into clean, working software.',
   manifesto: [
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    'Omnis enim res, quanto magis ad perfectionis fastigium vergit, tanto maiore severitate ac disciplina indiget. We construct software not as ephemeral sandcastles, but as gothic cathedrals—enduring, monolithic, yet intricately balanced.',
-    'Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.'
+    'My engineering philosophy is rooted in relentless technical curiosity. I never just stick to one lane—one week I\'m building full-stack applications with Next.js and Firebase, the next I\'m running Graph Neural Networks for drug repurposing, and then I\'m diving into penetration testing on Kali Linux.',
+    'I believe that the highly analytical side of computer science needs to be balanced with creative narrative. Whether it\'s co-writing fiction, analyzing villain archetypes, or geeking out over Majapahit history, I bring a storytelling perspective to my technical logic.',
+    'Ultimately, I build things to solve real problems and optimize life, always alongside a community. From leading GDG campus events to exchanging machine learning feedback, I thrive on collaboration—fueled by an unwavering loyalty to good food, and absolutely zero runny eggs.'
   ],
-  location: 'San Francisco, CA / London / Remote Astral Plane',
-  status: 'AVAILABLE FOR SELECT ENGAGEMENTS & ARCHITECTURAL COUNCIL',
-  email: 'valerius.mordecai@sanctum-void.org',
-  phonePlaceholder: '+1 (555) 839-4021',
-  pgpKey: '4A8F 9C12 B807 3E55 D1F6 20AA 99B8 E4D1 7C23 F880',
-  github: 'https://github.com',
-  twitter: 'https://x.com',
-  linkedin: 'https://linkedin.com',
-  stats: [
-    { label: 'Epochs of Lore', value: '10+', subtext: 'Years forging fault-tolerant systems' },
-    { label: 'Artifacts Shipped', value: '48+', subtext: 'Distributed engines & production releases' },
-    { label: 'Peak Concurrency', value: '14.2M', subtext: 'Concurrent websocket streams orchestrated' },
-    { label: 'Zero-Downtime Rate', value: '99.999%', subtext: 'Continuous cathedral resilience' }
-  ]
+  location: 'Jakarta, Indonesia',
+  status: 'OPEN TO OPPORTUNITIES & COLLABORATIONS',
+  email: 'mchandrarietta@gmail.com',
+  phonePlaceholder: '+6281574122635',
+  pgpKey: '',
+  github: 'https://github.com/MichaelFirstAC',
+  twitter: '',
+  linkedin: 'https://www.linkedin.com/in/michael-arianno-chandrarieta-06bb0928a/',
+  discord: '503029413764399105',
+  instagram: 'https://www.instagram.com/michael.arianno/'
 };
 
 export const initialProjects: Project[] = [
   {
-    id: 'project-aethelgard',
-    title: 'Aethelgard Vault & Consensus Engine',
-    codeName: 'PROJECT OBSIDIAN-IX',
-    category: 'Systems & Arch',
-    period: '2025 — Present',
+    id: 'project-cpu-scheduler',
+    title: 'CPU Scheduling Simulation',
+    codeName: 'OS VISUALIZER',
+    category: 'Algorithms',
+    period: '2026',
     summary:
-      'Lorem ipsum dolor sit amet: A high-frequency zero-knowledge ledger engine designed with Byzantine fault tolerance and asynchronous state pruning.',
+      'A fully animated, editable, and deployable CPU scheduling simulation built with TypeScript and React. Visualizes FCFS, SJF, SRTF, Round Robin, Priority, and Multilevel Queue algorithms in real-time.',
     fullDescription:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Built to withstand adverse network partitions, Aethelgard processes over 240,000 verifiable transactions per second using sub-millisecond cryptographic commit pipelines.',
+      'An interactive CPU scheduling visualization tool that lets users input custom processes and watch scheduling algorithms execute step-by-step with smooth animations. Built with a clean, modern UI featuring Gantt charts, timeline views, and comparative analytics across multiple algorithms. Deployed on Vercel for instant access.',
     architecturalHighlights: [
-      'Sub-2ms state synchronization across 32 sovereign geo-zones',
-      'Zero-allocation memory layout utilizing custom ring-buffer pools',
-      'Formal mathematical verification with TLA+ specifications',
-      'Encrypted cold-state persistence with deterministic snapshotting'
+      'Real-time Gantt chart visualization with smooth CSS animations',
+      'Support for 6 major scheduling algorithms (FCFS, SJF, SRTF, RR, Priority, MLQ)',
+      'Editable process parameters with instant re-simulation',
+      'Responsive design with comparative algorithm analytics'
     ],
-    impactMetric: '240k TPS',
-    impactLabel: 'Cryptographic commit benchmark',
-    technologies: ['Rust', 'Raft Consensus', 'Zero-Knowledge Proofs', 'eBPF', 'Tokio', 'gRPC'],
+    impactMetric: '6 Algorithms',
+    impactLabel: 'Fully visualized & interactive',
+    technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Vercel'],
     links: {
-      preview: 'https://github.com',
-      repository: 'https://github.com',
-      documentation: 'https://github.com'
+      preview: 'https://cpu-scheduling-simulation-six.vercel.app',
+      repository: 'https://github.com/MichaelFirstAC/CPU-Scheduling-Simulation'
     },
     featured: true
   },
   {
-    id: 'project-nocturne-protocol',
-    title: 'Nocturne Mesh & Neural Gatekeeper',
-    codeName: 'PROJECT RELIC-7',
-    category: 'Cryptographic',
-    period: '2024 — 2025',
+    id: 'project-solar-system',
+    title: '3D Solar System Simulation',
+    codeName: 'THREE.JS COSMOS',
+    category: '3D & Graphics',
+    period: '2026',
     summary:
-      'Lorem ipsum dolor sit amet: Ephemeral decentralized message routing fabric with post-quantum lattice encryption and oblivious RAM transport.',
+      'An interactive 3D solar system simulation built with Three.js featuring realistic planet orbits, textures, lighting, and camera controls. Deployed on Vercel with GitHub Pages support.',
     fullDescription:
-      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Implemented quantum-resistant lattice primitives (Kyber & Dilithium) into high-bandwidth edge proxies.',
+      'A WebGL-powered solar system simulator that renders all major planets with accurate relative sizing, orbital mechanics, and detailed textures. Features orbit path visualization, interactive camera controls for zooming and rotating around the system, and ambient space lighting effects.',
     architecturalHighlights: [
-      'Post-quantum key encapsulation with instant forward secrecy',
-      'Oblivious peer-to-peer gossip protocol with zero metadata leakage',
-      'Automated DDoS entropy throttling with cryptographic proof-of-work challenges'
+      'Realistic 3D planet rendering with texture mapping',
+      'Orbital mechanics simulation with accurate relative distances',
+      'Interactive camera controls (orbit, zoom, pan)',
+      'Ambient lighting and space environment effects'
     ],
-    impactMetric: '< 18ms',
-    impactLabel: 'Global routing latency floor',
-    technologies: ['C++20', 'Go', 'Kyber-1024', 'WireGuard Protocol', 'WebAssembly'],
+    impactMetric: 'WebGL 3D',
+    impactLabel: 'Real-time solar system rendering',
+    technologies: ['JavaScript', 'Three.js', 'WebGL', 'HTML5', 'Vercel'],
     links: {
-      preview: 'https://github.com',
-      repository: 'https://github.com'
+      preview: 'https://3-d-solar-system-using-three-9gf2f5hsa-michaelfirstacs-projects.vercel.app/',
+      repository: 'https://github.com/MichaelFirstAC/3D-Solar-System-using-Three.js'
     },
     featured: true
   },
   {
-    id: 'project-basilica-ui',
-    title: 'Basilica Terminal & High-Density Canvas',
-    codeName: 'OPUS CATHEDRALIS',
-    category: 'Engine & UI',
+    id: 'project-treasure-keeper',
+    title: 'TreasureKeeper — Expense Tracker',
+    codeName: 'FINTECH APP',
+    category: 'Web App',
     period: '2024',
     summary:
-      'Lorem ipsum dolor sit amet: WebGPU-accelerated real-time observability workstation rendering millions of live telemetry graph edges at 120 FPS.',
+      'A feature-rich expense tracking web application with calendar views, statistical analysis dashboards, and category-based budgeting. Built as the HCI Final Project at BINUS.',
     fullDescription:
-      'Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. A dark editorial spatial control surface crafted for mission-critical infrastructure operators with tactile keyboard ergonomics.',
+      'TreasureKeeper is a comprehensive personal finance management tool that enables users to track income and expenses with category tagging, visualize spending patterns through interactive charts, and review transactions on a calendar view. Features responsive design and persistent data storage.',
     architecturalHighlights: [
-      'Custom WebGPU vertex pipeline handling 2.5M nodes without jank',
-      'Zero-latency layout calculation via Rust WebAssembly compute shaders',
-      'Gothic dark tactile theme with bespoke sub-pixel monospace rendering'
+      'Calendar-based transaction view with daily summaries',
+      'Statistical analysis with chart visualizations',
+      'Category-based expense grouping and budgeting',
+      'Responsive design for mobile and desktop use'
     ],
-    impactMetric: '120 FPS',
-    impactLabel: 'Sustained canvas framerate at 2M nodes',
-    technologies: ['TypeScript', 'WebGPU', 'WebGL', 'WebAssembly', 'Tailwind CSS', 'React'],
+    impactMetric: '3 Stars',
+    impactLabel: 'Most starred project',
+    technologies: ['JavaScript', 'HTML5', 'CSS3', 'GitHub Pages'],
     links: {
-      preview: 'https://github.com',
-      documentation: 'https://github.com'
+      preview: 'https://michaelfirstac.github.io/TreasureKeeper/',
+      repository: 'https://github.com/MichaelFirstAC/TreasureKeeper'
     },
     featured: true
   },
   {
-    id: 'project-sanctum-kernel',
-    title: 'Sanctum Microkernel & Memory Fortress',
-    codeName: 'PROJECT CRYPT-IV',
-    category: 'Security',
-    period: '2023 — 2024',
+    id: 'project-drug-repurposing',
+    title: 'Drug Repurposing with Graph Neural Networks',
+    codeName: 'GNN RESEARCH',
+    category: 'Data Science',
+    period: '2025',
     summary:
-      'Lorem ipsum dolor sit amet: Hardened capability-based container isolation hypervisor for executing untrusted guest runtimes in sandboxed enclaves.',
+      'A research project using Graph Neural Networks (GCN) to predict novel drug-disease associations for drug repurposing. Leverages biomedical knowledge graphs and deep learning.',
     fullDescription:
-      'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Designed for confidential cloud enclaves utilizing hardware-enforced memory encryption.',
+      'This project applies Graph Convolutional Networks to biomedical knowledge graphs to discover potential drug repurposing candidates. The model learns from existing drug-disease-gene associations to predict previously unknown therapeutic uses for existing drugs, accelerating the drug discovery pipeline.',
     architecturalHighlights: [
-      'Capability-oriented micro-kernel with under 15,000 lines of verified core code',
-      'Protection against speculative cache-timing side-channels (Spectre/Meltdown mitigation)',
-      'Deterministic memory scrub cycles on thread eviction'
+      'Graph Convolutional Network architecture for biomedical data',
+      'Knowledge graph construction from drug-disease-gene triples',
+      'Link prediction for novel drug-disease associations',
+      'Evaluation metrics: AUC-ROC, precision, recall analysis'
     ],
-    impactMetric: '0 CVEs',
-    impactLabel: 'Audited by three independent tier-1 red teams',
-    technologies: ['Rust', 'ASM', 'AMD SEV-SNP', 'Intel SGX', 'Linux KVM'],
+    impactMetric: 'GCN Model',
+    impactLabel: 'Drug discovery via deep learning',
+    technologies: ['Python', 'PyTorch', 'Graph Neural Networks', 'Pandas', 'scikit-learn'],
     links: {
-      repository: 'https://github.com'
+      repository: 'https://github.com/MichaelFirstAC/Drug-Repurposing-using-Graph-Neural-Networks'
+    },
+    featured: true
+  },
+  {
+    id: 'project-witch-hell',
+    title: "A Witch's Hell — Bullet Hell Game",
+    codeName: 'PYGAME ARCADE',
+    category: 'Game Dev',
+    period: '2024',
+    summary:
+      'An endless bullet hell game built with Pygame featuring dynamic enemy patterns, power-ups, scoring systems, and progressively escalating difficulty. AlgoProg Final Project at BINUS.',
+    fullDescription:
+      'A Witch\'s Hell is an arcade-style bullet hell game where players dodge increasingly complex projectile patterns while defeating waves of enemies. Features a polished game loop with sprite animations, collision detection, particle effects, and a persistent high-score system.',
+    architecturalHighlights: [
+      'Dynamic bullet pattern generation with escalating difficulty',
+      'Sprite-based animation system with particle effects',
+      'Collision detection and physics-based projectile movement',
+      'Score tracking and progressive difficulty scaling'
+    ],
+    impactMetric: 'Endless',
+    impactLabel: 'Progressively escalating bullet patterns',
+    technologies: ['Python', 'Pygame', 'OOP', 'Sprite Animation'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/A-WITCH-S-HELL'
+    },
+    featured: true
+  },
+  {
+    id: 'project-maze-solver',
+    title: 'Maze Generator & Solver',
+    codeName: 'DS FINAL PROJECT',
+    category: 'Algorithms',
+    period: '2025',
+    summary:
+      'A maze generation and solving application using data structures including stacks, queues, and graph traversal algorithms. Implements DFS, BFS, and A* pathfinding with visual step-through.',
+    fullDescription:
+      'Built as the Data Structures & OOP final project, this application generates randomized mazes using recursive backtracking and solves them using multiple algorithms. Features a visual step-through mode to observe how different algorithms explore the maze, demonstrating the trade-offs between BFS, DFS, and A* search.',
+    architecturalHighlights: [
+      'Recursive backtracking maze generation algorithm',
+      'Multiple pathfinding algorithms (DFS, BFS, A*)',
+      'Visual step-through mode for algorithm comparison',
+      'Stack and queue-based data structure implementations'
+    ],
+    impactMetric: '3 Algorithms',
+    impactLabel: 'DFS, BFS, and A* pathfinding',
+    technologies: ['Java', 'Data Structures', 'Graph Algorithms', 'OOP'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/Maze-Maker-Solver'
+    },
+    featured: true
+  },
+  {
+    id: 'project-event-manager',
+    title: 'EventManager — Database CRUD App',
+    codeName: 'DB TECH PROJECT',
+    category: 'Web App',
+    period: '2024',
+    summary:
+      'A full-stack event management application built as the Database Technology final project. Features CRUD operations, user authentication, and relational database design.',
+    fullDescription:
+      'EventManager is a web application for creating, managing, and tracking events with user authentication and role-based access. Built with a focus on proper relational database design, normalization, and efficient query patterns.',
+    architecturalHighlights: [
+      'Full CRUD operations for event management',
+      'Relational database schema with proper normalization',
+      'User authentication and session management',
+      'Responsive web interface with form validation'
+    ],
+    impactMetric: 'Full-Stack',
+    impactLabel: 'Complete database-driven app',
+    technologies: ['JavaScript', 'Node.js', 'SQL', 'HTML/CSS'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/EventManager'
     },
     featured: false
   },
   {
-    id: 'project-vesper-stream',
-    title: 'Vesper Temporal Event Replay Broker',
-    codeName: 'CHRONOS BLACK',
-    category: 'Systems & Arch',
-    period: '2023',
+    id: 'project-image-compressor',
+    title: 'Image Compressor — ADA Final Project',
+    codeName: 'ALGORITHM DESIGN',
+    category: 'Algorithms',
+    period: '2025',
     summary:
-      'Lorem ipsum dolor sit amet: Distributed append-only immutable event log engine with hardware-accelerated compression and deterministic replay.',
+      'An image compression tool implementing algorithmic approaches to reduce file sizes while maintaining visual quality. Final project for Algorithm Design & Analysis.',
     fullDescription:
-      'Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Features direct NVMe kernel bypass via io_uring to achieve maximum I/O throughput on bare-metal clusters.',
+      'This project applies algorithm design principles to implement efficient image compression. Explores lossy and lossless compression techniques, comparing trade-offs between compression ratio and visual fidelity.',
     architecturalHighlights: [
-      'io_uring zero-copy disk writes matching raw NVMe saturation ceilings',
-      'Zstandard dictionary compression fine-tuned for high-cardinality JSON/Protobuf events',
-      'Bi-temporal state indexing for immediate time-travel debugging'
+      'Implementation of compression algorithms',
+      'Comparison of lossy vs lossless techniques',
+      'Compression ratio and quality metrics analysis',
+      'Batch processing support for multiple images'
     ],
-    impactMetric: '4.8 GB/s',
-    impactLabel: 'Sustained ingest rate per storage node',
-    technologies: ['Rust', 'io_uring', 'Protobuf', 'Zstandard', 'Prometheus'],
+    impactMetric: 'Compression',
+    impactLabel: 'Algorithmic image optimization',
+    technologies: ['Python', 'Pillow', 'NumPy', 'Algorithm Design'],
     links: {
-      repository: 'https://github.com'
+      repository: 'https://github.com/MichaelFirstAC/ImageCompressor'
     },
     featured: false
   },
   {
-    id: 'project-grimoire-compiler',
-    title: 'Grimoire Domain Language & Compiler',
-    codeName: 'LUA EX MORTIS',
-    category: 'Engine & UI',
-    period: '2022 — 2023',
+    id: 'project-movie-catalog',
+    title: 'MovieCatalog — Data Science Project',
+    codeName: 'DATA SCIENCE',
+    category: 'Data Science',
+    period: '2025',
     summary:
-      'Lorem ipsum dolor sit amet: Type-safe, static-analysis driven domain-specific language for expressing complex cryptographic multi-party contracts.',
+      'A movie catalog and recommendation system built as the Data Science final project, featuring data analysis, visualization, and machine learning-based recommendations.',
     fullDescription:
-      'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Includes an interactive language server (LSP) and bytecode emulator.',
+      'MovieCatalog leverages data science techniques to analyze movie datasets, generate insights through visualizations, and provide personalized movie recommendations using collaborative filtering and content-based approaches.',
     architecturalHighlights: [
-      'LLVM backend emitting optimized bytecode targeting both WASM and native x86/ARM',
-      'Formal affine type system prohibiting resource double-spend bugs at compile time',
-      'Instant hot-reloading REPL embedded within modern terminal shells'
+      'Exploratory data analysis with Pandas and Matplotlib',
+      'Recommendation engine using collaborative filtering',
+      'Interactive data visualizations and dashboards',
+      'Data preprocessing and feature engineering pipeline'
     ],
-    impactMetric: '100% Safety',
-    impactLabel: 'Compile-time guarantee against reentrancy vulnerabilities',
-    technologies: ['Rust', 'LLVM', 'LSP Protocol', 'Treesitter', 'WebAssembly'],
+    impactMetric: 'ML Model',
+    impactLabel: 'Movie recommendation engine',
+    technologies: ['Python', 'Pandas', 'scikit-learn', 'Matplotlib'],
     links: {
-      preview: 'https://github.com',
-      repository: 'https://github.com'
+      repository: 'https://github.com/MichaelFirstAC/MovieCatalog'
+    },
+    featured: false
+  },
+  {
+    id: 'project-pentest-report',
+    title: 'Ethical Hacking Penetration Test Report',
+    codeName: 'CYBERSECURITY',
+    category: 'Algorithms',
+    period: '2026',
+    summary:
+      'A comprehensive penetration testing report documenting vulnerability assessment, exploitation techniques, and remediation strategies using Kali Linux tools.',
+    fullDescription:
+      'A detailed ethical hacking penetration testing report conducted for the BINUS International cybersecurity course. Documents the full pentest lifecycle including reconnaissance, scanning, exploitation, and post-exploitation phases with real-world tools and methodologies.',
+    architecturalHighlights: [
+      'Full penetration testing lifecycle documentation',
+      'Vulnerability scanning with Nmap, Nikto, and Burp Suite',
+      'Exploitation techniques and proof-of-concept demonstrations',
+      'Remediation recommendations and risk assessment'
+    ],
+    impactMetric: 'Full Report',
+    impactLabel: 'Complete pentest lifecycle',
+    technologies: ['Kali Linux', 'Nmap', 'Burp Suite', 'Metasploit'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/Ethical-Hacking-Pentest-Report'
+    },
+    featured: false
+  },
+  {
+    id: 'project-image-compressor',
+    title: 'Image Compressor & Optimizer',
+    codeName: 'IMAGE-COMPRESSOR',
+    category: 'Algorithms',
+    period: '2025',
+    summary: 'A sophisticated image compression tool implementing core algorithms built for the Algorithm Design and Analysis final project.',
+    fullDescription: 'Developed an efficient image compressor showcasing advanced algorithm design. Implements compression techniques to significantly reduce file sizes while maintaining visual fidelity, built as a capstone project for ADA.',
+    architecturalHighlights: [
+      'Implementation of efficient compression algorithms',
+      'Performance profiling and algorithmic optimization'
+    ],
+    impactMetric: 'Algorithm Design',
+    impactLabel: 'Capstone ADA Project',
+    technologies: ['Python', 'Algorithms', 'Data Structures'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/ImageCompressor'
+    },
+    featured: false
+  },
+  {
+    id: 'project-event-manager',
+    title: 'Event Management Database System',
+    codeName: 'EVENTMANAGER',
+    category: 'Data Science',
+    period: '2025',
+    summary: 'A robust database-backed event management system designed for the Database Technology final project.',
+    fullDescription: 'A comprehensive database management application built to handle complex relational data for event planning and execution. Features advanced queries, robust schema design, and transactional integrity.',
+    architecturalHighlights: [
+      'Relational database schema design and normalization',
+      'Complex SQL queries and data aggregation'
+    ],
+    impactMetric: 'Database Tech',
+    impactLabel: 'Robust Architecture',
+    technologies: ['SQL', 'Database Design', 'Python'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/EventManager'
+    },
+    featured: false
+  },
+  {
+    id: 'project-ethical-hacking',
+    title: 'Penetration Testing Framework',
+    codeName: 'PENTEST-REPORT',
+    category: 'Algorithms',
+    period: '2025',
+    summary: 'Comprehensive ethical hacking and penetration testing report executed for BINUS International University.',
+    fullDescription: 'A detailed security analysis and penetration testing engagement focusing on vulnerability assessment, exploit identification, and mitigation strategies using Kali Linux and industry-standard tools.',
+    architecturalHighlights: [
+      'Vulnerability scanning and threat modeling',
+      'Execution of controlled exploits within secure boundaries',
+      'Comprehensive security reporting and mitigation strategies'
+    ],
+    impactMetric: 'Cybersecurity',
+    impactLabel: 'Security Analysis',
+    technologies: ['Kali Linux', 'Penetration Testing', 'Security Assessment'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/Ethical-Hacking-Pentest-Report'
     },
     featured: false
   }
@@ -178,159 +334,122 @@ export const initialProjects: Project[] = [
 
 export const initialSkills: SkillCategory[] = [
   {
-    title: 'Architectural Sorcery & Systems Core',
-    latinTitle: 'Architectura Fundamentalis',
+    title: 'Programming Languages',
+    latinTitle: 'Lingua Programmandi',
     iconName: 'Cpu',
-    description: 'Low-latency systems, kernel bypass, distributed consensus, and zero-allocation memory paradigms.',
+    description: 'Core languages used across web, game, and data science projects.',
     skills: [
-      { name: 'Rust (Async Tokio & Systems)', level: 98, tier: 'Grandmaster', specialty: 'Lockless Data Structures & eBPF' },
-      { name: 'Distributed Systems & Raft/Paxos', level: 95, tier: 'Grandmaster', specialty: 'Fault-tolerant multi-master topologies' },
-      { name: 'C++20 & Systems Programming', level: 88, tier: 'Master', specialty: 'SIMD Vectorization & Cache Locality' },
-      { name: 'Linux Kernel & io_uring', level: 90, tier: 'Master', specialty: 'Zero-copy I/O & Enclave virtualization' },
-      { name: 'Go (High-Throughput Services)', level: 92, tier: 'Grandmaster', specialty: 'Concurrent micro-daemons & gRPC' }
+      { name: 'Python', level: 90, tier: 'Grandmaster', specialty: 'Pygame, Flask, Data Science, ML' },
+      { name: 'JavaScript', level: 88, tier: 'Master', specialty: 'Three.js, Node.js, DOM, ES6+' },
+      { name: 'TypeScript', level: 85, tier: 'Master', specialty: 'React, Next.js, Vite' },
+      { name: 'Java', level: 80, tier: 'Master', specialty: 'OOP, Data Structures, Algorithms' },
+      { name: 'HTML5 & CSS3', level: 92, tier: 'Grandmaster', specialty: 'Responsive design, animations' }
     ]
   },
   {
-    title: 'Cryptographic Arts & Zero-Knowledge',
-    latinTitle: 'Ars Cryptographica',
-    iconName: 'Shield',
-    description: 'Applied cryptography, post-quantum primitives, zero-knowledge proofs, and secure hardware enclaves.',
-    skills: [
-      { name: 'Post-Quantum Lattice Encryption', level: 88, tier: 'Master', specialty: 'Kyber / Dilithium algorithm pipelines' },
-      { name: 'Zero-Knowledge Proofs (ZK-SNARKs)', level: 84, tier: 'Master', specialty: 'Circuit design & verification constraints' },
-      { name: 'Hardware Enclaves (SGX / SEV)', level: 86, tier: 'Master', specialty: 'Confidential cloud compute memory fortress' },
-      { name: 'Formal Verification (TLA+)', level: 80, tier: 'Adept', specialty: 'State machine safety proofs' }
-    ]
-  },
-  {
-    title: 'Interface Witchcraft & Spatial Ergonomics',
-    latinTitle: 'Artificium Visuale',
+    title: 'Frameworks & Libraries',
+    latinTitle: 'Instrumenta Architecturae',
     iconName: 'Layout',
-    description: 'Dark mode mastery, WebGPU shader graphics, high-density telemetry dashboards, and precision ergonomics.',
+    description: 'Modern frameworks for building web apps, 3D experiences, and games.',
     skills: [
-      { name: 'TypeScript & Modern React', level: 96, tier: 'Grandmaster', specialty: 'Zero-jank 120fps state architecture' },
-      { name: 'WebGPU & Shaders (WGSL)', level: 82, tier: 'Master', specialty: 'Massive parallel graph visualization' },
-      { name: 'Tailwind CSS & Editorial Systems', level: 95, tier: 'Grandmaster', specialty: 'Gothic typographic hierarchy & micro-shadows' },
-      { name: 'Framer Motion & Fluid Choreography', level: 92, tier: 'Grandmaster', specialty: 'Scroll-linked physics & cinematic transitions' }
+      { name: 'React & Next.js', level: 85, tier: 'Master', specialty: 'SPA, SSR, component architecture' },
+      { name: 'Three.js & WebGL', level: 78, tier: 'Adept', specialty: '3D rendering, shaders, camera systems' },
+      { name: 'Tailwind CSS', level: 88, tier: 'Master', specialty: 'Utility-first styling, responsive design' },
+      { name: 'Pygame', level: 82, tier: 'Master', specialty: 'Game loops, sprite systems, collision' },
+      { name: 'Flask & Node.js', level: 80, tier: 'Master', specialty: 'REST APIs, backend services' }
     ]
   },
   {
-    title: 'Infrastructure, Citadels & Reliability',
-    latinTitle: 'Munitiones ac Custodia',
-    iconName: 'Terminal',
-    description: 'Immutable deployments, multi-cloud bare metal, site reliability, and observability telemetry.',
+    title: 'Data Science & Machine Learning',
+    latinTitle: 'Scientia Datorum',
+    iconName: 'Shield',
+    description: 'Applied ML, deep learning, and data analysis for research and projects.',
     skills: [
-      { name: 'Kubernetes & Bare-Metal Orchestration', level: 90, tier: 'Master', specialty: 'Zero-trust ingress & custom operators' },
-      { name: 'Observability & OpenTelemetry', level: 92, tier: 'Master', specialty: 'Distributed tracing at 10M span/sec scale' },
-      { name: 'Terraform & Declarative Infra', level: 88, tier: 'Master', specialty: 'Multi-region immutable fortress clusters' },
-      { name: 'CI/CD & Hermetic Nix Builds', level: 85, tier: 'Adept', specialty: 'Bit-for-bit reproducible release pipelines' }
+      { name: 'PyTorch & Graph Neural Networks', level: 78, tier: 'Adept', specialty: 'GCN, drug repurposing research' },
+      { name: 'scikit-learn', level: 80, tier: 'Master', specialty: 'Classification, clustering, evaluation' },
+      { name: 'Pandas & NumPy', level: 85, tier: 'Master', specialty: 'Data wrangling, feature engineering' },
+      { name: 'Data Visualization', level: 82, tier: 'Master', specialty: 'Matplotlib, charts, dashboards' }
+    ]
+  },
+  {
+    title: 'Tools, Platforms & Security',
+    latinTitle: 'Instrumenta et Securitas',
+    iconName: 'Terminal',
+    description: 'Development tools, deployment platforms, and cybersecurity fundamentals.',
+    skills: [
+      { name: 'Git & GitHub', level: 90, tier: 'Grandmaster', specialty: 'Version control, CI/CD, collaboration' },
+      { name: 'Vercel & Deployment', level: 85, tier: 'Master', specialty: 'Static sites, serverless functions' },
+      { name: 'Linux & Kali Linux', level: 75, tier: 'Adept', specialty: 'Penetration testing, CLI tools' },
+      { name: 'Vite & Build Tools', level: 82, tier: 'Master', specialty: 'Module bundling, HMR, optimization' }
     ]
   }
 ];
 
 export const initialExperience: ExperienceRole[] = [
   {
-    id: 'exp-principal-sanctum',
-    role: 'Principal Systems Architect & Fellow',
-    organization: 'Sanctum Cryptographic Citadel',
-    division: 'Deep Systems & Infrastructure Council',
-    period: '2023 — Present (Epoch VI)',
-    location: 'San Francisco, CA / Geneva',
-    seal: 'SC',
+    id: 'exp-binus-cs',
+    title: 'Computer Science Student',
+    organization: 'BINUS International University',
+    seal: 'BI',
+    period: '2024 — 2027',
     summary:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Directing the architectural destiny of the core consensus fabric and zero-knowledge privacy layers.',
+      'Pursuing a Bachelor of Science in Computer Science with focus areas in web development, game development, data science, and algorithm design.',
     achievements: [
-      'Lorem ipsum: Redesigned the primary peer-to-peer propagation layer, reducing median latency by 64% across trans-continental nodes.',
-      'Led 18 senior infrastructure sorcerers in authoring the formal verification proofs for our sovereign execution runtime.',
-      'Sustained 99.999% uptime across three consecutive years of unprecedented adversarial attack traffic.'
+      'Built 33+ public repositories spanning web apps, 3D simulations, games, and ML research projects.',
+      'Developed a CPU Scheduling Simulation visualizing 6 major OS algorithms with full interactivity.',
+      'Conducted ethical hacking penetration testing with comprehensive vulnerability documentation.',
+      'Completed research on Drug Repurposing using Graph Neural Networks with PyTorch.'
     ],
-    technologies: ['Rust', 'eBPF', 'Tokio', 'Raft', 'WebAssembly', 'Prometheus']
+    technologies: ['Python', 'Java', 'TypeScript', 'React', 'Three.js', 'PyTorch']
   },
   {
-    id: 'exp-staff-vesper',
-    role: 'Staff Distributed Engineer',
-    organization: 'Vesper Autonomous Technologies',
-    division: 'Edge Intelligence & Real-time Stream Core',
-    period: '2020 — 2023 (Epoch V)',
-    location: 'London, UK / Remote',
-    seal: 'VA',
+    id: 'exp-rmit',
+    title: 'Double Degree CS Program',
+    organization: 'RMIT University',
+    seal: 'RMIT',
+    period: '2028',
     summary:
-      'Lorem ipsum dolor sit amet: Architected the fault-tolerant telemetry stream broker processing trillions of sensor events weekly.',
+      'Transitioning to RMIT University to complete the dual degree program, expanding on global tech perspectives and advanced computing modules.',
     achievements: [
-      'Pioneered custom io_uring storage engine that halved AWS bare-metal instance costs while tripling disk write throughput.',
-      'Authored internal RFCs on cryptographic event integrity, establishing company-wide standards for audit immutability.',
-      'Mentored 8 mid-level and junior engineers into senior technical leads.'
+      'Engaging in international tech curriculum and advanced research projects.',
+      'Expanding collaborative networks in a globally diverse academic environment.'
     ],
-    technologies: ['Go', 'C++', 'Kafka/Redpanda', 'Kubernetes', 'gRPC', 'PostgreSQL']
-  },
-  {
-    id: 'exp-senior-nocturne',
-    role: 'Senior Core Systems Engineer',
-    organization: 'Nocturne Defense & Cryptography',
-    division: 'Applied Cryptography Guild',
-    period: '2017 — 2020 (Epoch IV)',
-    location: 'Zurich / Remote',
-    seal: 'ND',
-    summary:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Implemented hardened capability hypervisors and encrypted network protocol bridges.',
-    achievements: [
-      'Delivered zero-knowledge identity authentication system utilized by over 4M enterprise endpoints.',
-      'Discovered and patched 2 critical speculative execution vulnerabilities prior to production zero-day disclosure.',
-      'Optimized cryptographic handshakes to sub-4ms using vectorized AVX-512 instructions.'
-    ],
-    technologies: ['C++17', 'Rust', 'OpenSSL/BoringSSL', 'Linux Enclaves', 'Python']
-  },
-  {
-    id: 'exp-founding-engineer',
-    role: 'Founding Infrastructure Engineer',
-    organization: 'Aethel Labs (Seed to Series B)',
-    division: 'Foundation Layer',
-    period: '2015 — 2017 (Epoch III)',
-    location: 'Cambridge, MA',
-    seal: 'AL',
-    summary:
-      'Lorem ipsum dolor sit amet: Built the ground-up cloud infrastructure, database clusters, and continuous delivery pipeline.',
-    achievements: [
-      'Scaled system from 0 to 1,000,000 active daily requests with zero dedicated operations staff.',
-      'Implemented automated multi-region failover that prevented multiple upstream cloud outages.'
-    ],
-    technologies: ['Go', 'Docker', 'PostgreSQL', 'Redis', 'AWS', 'Linux']
+    technologies: ['Advanced Algorithms', 'Software Engineering', 'Global Tech']
   }
 ];
 
 export const initialAccreditations: Accreditation[] = [
   {
-    id: 'acc-degree-master',
-    title: 'Master of Science in Distributed Systems & Cryptography',
-    institution: 'University of Oxford (Honours / Summa Cum Laude)',
-    year: '2015',
+    id: 'acc-binus-cs',
+    title: 'Bachelor of Science in Computer Science',
+    institution: 'BINUS International University',
+    year: '2024 — Present',
     type: 'Degree',
-    honor: 'First Class Honours with Distinction',
-    description: 'Thesis on Byzantine Consensus Resilience under Asymmetric Network Partitions.'
+    honor: 'BS28 Cohort',
+    description: 'Computer Science program with coursework in algorithms, data structures, web development, databases, operating systems, and cybersecurity.'
   },
   {
-    id: 'acc-degree-bachelor',
-    title: 'Bachelor of Science in Computer Science & Pure Mathematics',
-    institution: 'Massachusetts Institute of Technology',
-    year: '2013',
-    type: 'Degree',
-    honor: 'Dean’s Honor List',
-    description: 'Double focus in Abstract Algebra, Cryptography, and Formal Compiler Verification.'
-  },
-  {
-    id: 'acc-cert-redteam',
-    title: 'Offensive Security Certified Expert (OSCE / GXPN)',
-    institution: 'GIAC / Offensive Security',
-    year: '2021',
+    id: 'acc-pentest',
+    title: 'Ethical Hacking & Penetration Testing',
+    institution: 'BINUS International — Cybersecurity Course',
+    year: '2026',
     type: 'Certification',
-    description: 'Exploitation research, kernel debugging, and cryptographic algorithm penetration testing.'
+    description: 'Completed comprehensive penetration testing project using Kali Linux, Nmap, Burp Suite, and Metasploit with full documentation.'
   },
   {
-    id: 'acc-pub-ieee',
-    title: 'Paper: "Sub-Millisecond ZK Proof Generation in Memory-Constrained Hardware"',
-    institution: 'IEEE Symposium on Security and Privacy',
-    year: '2024',
+    id: 'acc-drug-research',
+    title: 'Drug Repurposing via Graph Neural Networks',
+    institution: 'Independent Research Project',
+    year: '2025',
     type: 'Publication',
-    description: 'Peer-reviewed research detailing hardware-assisted zero-knowledge proof acceleration pipelines.'
+    description: 'Research applying Graph Convolutional Networks to biomedical knowledge graphs for predicting novel drug-disease associations.'
+  },
+  {
+    id: 'acc-algo-design',
+    title: 'Algorithm Design & Analysis',
+    institution: 'BINUS International',
+    year: '2025',
+    type: 'Certification',
+    description: 'Coursework covering algorithm complexity, greedy algorithms, dynamic programming, graph algorithms (Kruskal\'s, Prim\'s), and image compression techniques.'
   }
 ];

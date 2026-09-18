@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Printer, Edit3, ArrowUpRight, Menu, X, Monitor, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Monitor } from 'lucide-react';
 import { ProfileInfo } from '../types';
 
 interface NavigationProps {
   profile: ProfileInfo;
-  onOpenCustomizer: () => void;
-  onPrintCV: () => void;
   scanlinesActive: boolean;
   onToggleScanlines: () => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({
   profile,
-  onOpenCustomizer,
-  onPrintCV,
   scanlinesActive,
   onToggleScanlines,
 }) => {
@@ -59,34 +55,37 @@ export const Navigation: React.FC<NavigationProps> = ({
       id="main-navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 no-print ${
         scrolled
-          ? 'bg-[#08080a]/90 backdrop-blur-md border-b border-zinc-900 py-3 shadow-sm'
-          : 'bg-transparent border-b border-white/5 py-4'
+          ? 'bg-[#08080a]/90 backdrop-blur-md border-b border-zinc-900 py-2.5 shadow-sm'
+          : 'bg-transparent border-b border-white/5 py-3'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Minimalist Monogram & Title */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
+        {/* Monogram & Brand */}
         <a
           href="#dossier"
           id="nav-brand-seal"
-          className="group flex items-center space-x-3 text-left focus:outline-none shrink-0"
+          className="group flex items-center gap-2.5 text-left focus:outline-none shrink-0"
         >
-          <div className="w-10 h-10 min-w-10 min-h-10 aspect-square rounded-md border border-zinc-700 bg-zinc-900/90 flex items-center justify-center shrink-0 p-2 group-hover:border-zinc-400 group-hover:bg-zinc-800 transition-all shadow-sm">
-            <span className="text-[11px] font-mono font-bold tracking-wider text-zinc-100 leading-none select-none text-center">
+          <div className="w-9 h-9 rounded-md border border-zinc-700 bg-zinc-900/90 flex items-center justify-center shrink-0 group-hover:border-zinc-400 group-hover:bg-zinc-800 transition-all shadow-sm">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-zinc-100 leading-none select-none">
               {profile.monogram || 'MAC'}
             </span>
           </div>
-          <div className="shrink-0">
-            <div className="text-sm font-medium text-zinc-100 group-hover:text-white transition-colors tracking-tight whitespace-nowrap">
+          <div className="hidden xl:block shrink-0">
+            <div className="text-[13px] font-medium text-zinc-100 group-hover:text-white transition-colors tracking-tight whitespace-nowrap leading-tight">
               {profile.name}
             </div>
-            <div className="text-[10px] tracking-wider text-zinc-400 font-mono-code uppercase whitespace-nowrap">
+            <div className="text-[9px] tracking-[0.08em] text-zinc-500 font-mono-code uppercase whitespace-nowrap leading-tight">
               {profile.title}
             </div>
           </div>
         </a>
 
+        {/* Subtle divider */}
+        <div className="hidden lg:block w-px h-5 bg-zinc-800 shrink-0" />
+
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1">
+        <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -94,95 +93,69 @@ export const Navigation: React.FC<NavigationProps> = ({
                 key={link.id}
                 href={`#${link.id}`}
                 id={`nav-link-${link.id}`}
-                className={`relative px-2 py-1 rounded text-xs tracking-wider transition-colors uppercase font-mono-code whitespace-nowrap ${
+                className={`relative px-2.5 py-1.5 rounded text-[11px] tracking-[0.06em] transition-all uppercase font-mono-code whitespace-nowrap ${
                   isActive
-                    ? 'text-white font-medium bg-zinc-900'
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50'
+                    ? 'text-white font-medium bg-zinc-800/80 shadow-[0_0_12px_rgba(255,255,255,0.04)]'
+                    : 'text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40'
                 }`}
               >
-                <span>{link.label}</span>
+                {link.label}
               </a>
             );
           })}
         </nav>
 
+        {/* Subtle divider */}
+        <div className="hidden lg:block w-px h-5 bg-zinc-800 shrink-0" />
+
         {/* Header Action Buttons */}
-        <div className="hidden lg:flex items-center space-x-1.5 shrink-0">
+        <div className="hidden lg:flex items-center gap-1 shrink-0">
           {/* CRT Scanline Toggle */}
           <button
             onClick={onToggleScanlines}
             id="nav-toggle-crt-btn"
             title="Toggle CRT Scanline Overlay"
-            className={`flex items-center space-x-1.5 px-2.5 py-1.5 rounded border text-[11px] font-mono-code transition-all ${
+            className={`flex items-center gap-1 px-2 py-1.5 rounded border text-[10px] font-mono-code transition-all ${
               scanlinesActive
                 ? 'border-zinc-500 bg-zinc-800 text-zinc-100'
-                : 'border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200'
+                : 'border-zinc-800/80 bg-zinc-950/60 text-zinc-500 hover:border-zinc-700 hover:text-zinc-300'
             }`}
           >
-            <Monitor className="w-3.5 h-3.5" />
-            <span className="tracking-wider uppercase">CRT:{scanlinesActive ? 'ON' : 'OFF'}</span>
+            <Monitor className="w-3 h-3" />
+            <span className="tracking-wider uppercase hidden xl:inline">CRT:{scanlinesActive ? 'ON' : 'OFF'}</span>
           </button>
 
-          {/* Customizer Drawer Toggle */}
-          <button
-            onClick={onOpenCustomizer}
-            id="nav-edit-template-btn"
-            title="Edit Personal Data"
-            className="flex items-center space-x-1 px-2.5 py-1.5 rounded border border-zinc-800 bg-zinc-900/80 text-zinc-300 text-xs font-mono-code hover:border-zinc-600 hover:text-white transition-all shadow-sm group"
-          >
-            <Edit3 className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-200" />
-            <span className="tracking-wider">Edit Data</span>
-          </button>
 
-          {/* Print/Export CV Button */}
-          <button
-            onClick={onPrintCV}
-            id="nav-print-cv-btn"
-            title="Export / Print Professional Dossier"
-            className="flex items-center space-x-1 px-2.5 py-1.5 rounded border border-zinc-800 bg-zinc-950 text-zinc-300 text-xs font-mono-code hover:border-zinc-600 hover:text-white transition-all shadow-sm"
-          >
-            <Printer className="w-3.5 h-3.5 text-zinc-400" />
-            <span className="tracking-wider">Print</span>
-          </button>
-
-          {/* Quick Dispatch CTA */}
           <a
             href="#dispatch"
             id="nav-summon-cta-btn"
-            className="flex items-center space-x-1 px-3 py-1.5 rounded bg-white hover:bg-zinc-200 text-black text-xs font-medium tracking-wider uppercase transition-all"
+            className="flex items-center gap-1 px-3 py-1.5 rounded bg-white hover:bg-zinc-200 text-black text-[11px] font-medium tracking-wider uppercase transition-all ml-1"
           >
             <span>Contact</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3 h-3" />
           </a>
         </div>
 
         {/* Mobile / Tablet menu toggle */}
-        <div className="flex lg:hidden items-center space-x-2">
+        <div className="flex lg:hidden items-center gap-1.5 ml-auto">
           <button
             onClick={onToggleScanlines}
-            className={`p-1.5 rounded border text-xs font-mono-code ${
+            className={`p-1.5 rounded border text-xs ${
               scanlinesActive
                 ? 'border-zinc-500 bg-zinc-800 text-zinc-100'
-                : 'border-zinc-800 bg-zinc-900 text-zinc-400'
+                : 'border-zinc-800 bg-zinc-900 text-zinc-500'
             }`}
             aria-label="Toggle CRT"
           >
-            <Monitor className="w-4 h-4" />
-          </button>
-          <button
-            onClick={onOpenCustomizer}
-            className="p-1.5 text-zinc-300 hover:text-white border border-zinc-800 rounded bg-zinc-900"
-            aria-label="Edit Template"
-          >
-            <Edit3 className="w-4 h-4" />
+            <Monitor className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             id="nav-mobile-toggle-btn"
-            className="p-1.5 text-zinc-300 hover:text-white border border-zinc-800 rounded bg-zinc-900"
+            className="p-1.5 text-zinc-400 hover:text-white border border-zinc-800 rounded bg-zinc-900"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
@@ -191,7 +164,7 @@ export const Navigation: React.FC<NavigationProps> = ({
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-drawer"
-          className="lg:hidden border-b border-zinc-900 bg-[#08080af8] backdrop-blur-xl px-4 py-5 space-y-3 mt-3 animate-fadeIn"
+          className="lg:hidden border-b border-zinc-900 bg-[#08080af8] backdrop-blur-xl px-4 py-5 space-y-3 mt-2 animate-fadeIn"
         >
           <div className="grid grid-cols-2 gap-2">
             {navLinks.map((link) => (
@@ -199,27 +172,21 @@ export const Navigation: React.FC<NavigationProps> = ({
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-md border border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:text-white text-xs font-mono-code transition-colors"
+                className={`px-3 py-2.5 rounded-md border text-xs font-mono-code transition-colors ${
+                  activeSection === link.id
+                    ? 'border-zinc-600 bg-zinc-800/80 text-white'
+                    : 'border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white'
+                }`}
               >
                 <span className="font-medium">{link.label}</span>
               </a>
             ))}
           </div>
-          <div className="pt-3 border-t border-zinc-900 flex items-center justify-between gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onPrintCV();
-              }}
-              className="flex-1 py-2 text-center text-xs border border-zinc-800 hover:border-zinc-700 rounded-md text-zinc-300 font-mono-code flex items-center justify-center space-x-1 transition-colors"
-            >
-              <Printer className="w-3.5 h-3.5 mr-1" />
-              <span>Print CV</span>
-            </button>
+          <div className="pt-3 border-t border-zinc-900 flex flex-col gap-2">
             <a
               href="#dispatch"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 py-2 text-center text-xs bg-zinc-100 hover:bg-white text-black font-medium rounded-md flex items-center justify-center space-x-1 transition-colors"
+              className="flex-1 py-2 text-center text-xs bg-zinc-100 hover:bg-white text-black font-medium rounded-md flex items-center justify-center gap-1.5 transition-colors"
             >
               <span>Contact</span>
             </a>
@@ -229,4 +196,3 @@ export const Navigation: React.FC<NavigationProps> = ({
     </header>
   );
 };
-

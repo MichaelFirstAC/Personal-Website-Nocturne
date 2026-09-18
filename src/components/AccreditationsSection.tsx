@@ -27,7 +27,7 @@ export const AccreditationsSection: React.FC<AccreditationsSectionProps> = ({
   return (
     <section
       id="relics"
-      className="py-24 relative border-b border-zinc-900 bg-[#08080a]"
+      className="py-24 relative border-b border-zinc-900 bg-transparent"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

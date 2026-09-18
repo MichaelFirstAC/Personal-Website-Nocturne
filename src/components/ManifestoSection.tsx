@@ -12,28 +12,28 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
   const tenets = [
     {
       roman: 'I',
-      title: 'Monolithic Rigor',
-      latin: 'Rigor Structurae',
-      desc: 'We forge software as stone cathedrals—heavy, enduring, and mathematically balanced, rejecting flimsy ephemeral sandcastles.'
+      title: 'Relentless Technical Curiosity',
+      latin: 'Curiositas Infinita',
+      desc: 'Never sticking to one lane. From Next.js and Firebase to GNNs and Kali Linux, down to reapplying thermal paste for dGPU optimization.'
     },
     {
       roman: 'II',
-      title: 'Mathematical Invariance',
-      latin: 'Veritas Formalis',
-      desc: 'Formally proven safety guarantees and deterministic state machines supersede unverified human intuition.'
+      title: 'Logic & Narrative Harmony',
+      latin: 'Logica et Fabula',
+      desc: 'Balancing hardcore CS analytics with creative storytelling, character archetypes, and a deep appreciation for history.'
     },
     {
       roman: 'III',
-      title: 'Sovereign Resilience',
-      latin: 'Resistentia Perpetua',
-      desc: 'Byzantine-fault tolerant systems designed to maintain consensus and zero-data loss even during adversarial partitions.'
+      title: 'Community & Pragmatism',
+      latin: 'Communitas et Usus',
+      desc: 'Building practical solutions that optimize life alongside others—fueled by unwavering food loyalty and zero runny eggs.'
     }
   ];
 
   return (
     <section
       id="manifesto"
-      className="py-24 relative border-b border-zinc-900 bg-[#08080a]"
+      className="py-24 relative border-b border-zinc-900 bg-transparent"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -111,29 +111,34 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
               </div>
             ))}
 
-            {/* Quick Dossier Snapshot Bento */}
-            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950/80 text-xs font-mono-code space-y-3">
-              <div className="text-zinc-400 uppercase tracking-wider text-[11px] pb-2 border-b border-zinc-900 flex justify-between items-center">
-                <span>System Profile</span>
-                <span className="text-zinc-300">TIER-1 ARCHITECT</span>
+            {/* Digital Terminal Animation Box */}
+            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950/80 text-xs font-mono-code relative overflow-hidden group h-32 flex flex-col justify-end shadow-sm">
+              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none z-10" />
+              
+              <div className="relative z-20 space-y-1.5 text-[10px] text-emerald-500/80 tracking-wider">
+                <div className="flex items-center space-x-2">
+                  <span className="text-zinc-500">{'>'}</span>
+                  <span>Initializing neural pathways...</span>
+                </div>
+                <div className="flex items-center space-x-2 opacity-70">
+                  <span className="text-zinc-500">{'>'}</span>
+                  <span>Loading narrative matrices... [OK]</span>
+                </div>
+                <div className="flex items-center space-x-2 opacity-50">
+                  <span className="text-zinc-500">{'>'}</span>
+                  <span>Compiling community modules...</span>
+                </div>
+                <div className="flex items-center space-x-2 mt-2 pt-1 border-t border-zinc-900/50">
+                  <span className="text-emerald-400 font-bold">SYSTEM.ONLINE</span>
+                  <span className="w-1.5 h-3 bg-emerald-400 animate-pulse block" />
+                </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 text-zinc-400">
-                <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">Dialects</span>
-                  <span className="text-zinc-200">Rust, C++20, Go, TS</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">Verification</span>
-                  <span className="text-emerald-400">Formal TLA+ / Lean</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">Consensus</span>
-                  <span className="text-zinc-200">Raft / Paxos / BFT</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">Availability</span>
-                  <span className="text-zinc-200">Consulting & Advisory</span>
-                </div>
+
+              {/* Status Indicators */}
+              <div className="absolute top-3 right-3 flex space-x-1.5 z-20">
+                <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite_200ms]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-[pulse_2s_infinite_400ms]" />
               </div>
             </div>
           </DisintegrateOnScroll>

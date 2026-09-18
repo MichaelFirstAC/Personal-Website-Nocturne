@@ -20,10 +20,11 @@ export interface ProfileInfo {
   github: string;
   twitter: string;
   linkedin: string;
-  stats: StatItem[];
+  discord: string;
+  instagram: string;
 }
 
-export type ProjectCategory = 'All' | 'Systems & Arch' | 'Cryptographic' | 'Engine & UI' | 'Security';
+export type ProjectCategory = 'All' | 'Web App' | '3D & Graphics' | 'Data Science' | 'Game Dev' | 'Algorithms';
 
 export interface Project {
   id: string;

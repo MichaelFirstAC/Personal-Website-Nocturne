@@ -15,10 +15,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
   const categories: ProjectCategory[] = [
     'All',
-    'Systems & Arch',
-    'Cryptographic',
-    'Engine & UI',
-    'Security'
+    'Web App',
+    '3D & Graphics',
+    'Data Science',
+    'Game Dev',
+    'Algorithms'
   ];
 
   const filteredProjects =
@@ -29,7 +30,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
   return (
     <section
       id="projects"
-      className="py-24 relative border-b border-zinc-900 bg-[#08080a]"
+      className="py-24 relative border-b border-zinc-900 bg-transparent"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -38,10 +39,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <span>02 // SELECTED WORKS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-zinc-100 font-serif">
-            Projects & Architecture
+            Projects & Works
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mt-3 font-serif italic">
-            High-throughput distributed consensus fabrics, zero-knowledge verification, and low-latency systems.
+            Web applications, 3D simulations, machine learning research, games, and algorithm visualizations.
           </p>
         </DisintegrateOnScroll>
 

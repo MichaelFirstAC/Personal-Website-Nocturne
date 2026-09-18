@@ -1,13 +1,12 @@
 import React from 'react';
-import { ArrowUp, Printer } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { ProfileInfo } from '../types';
 
 interface GothicFooterProps {
   profile: ProfileInfo;
-  onPrintCV: () => void;
 }
 
-export const GothicFooter: React.FC<GothicFooterProps> = ({ profile, onPrintCV }) => {
+export const GothicFooter: React.FC<GothicFooterProps> = ({ profile }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -48,13 +47,6 @@ export const GothicFooter: React.FC<GothicFooterProps> = ({ profile, onPrintCV }
           <a href="#dispatch" className="hover:text-white transition-colors">
             Contact
           </a>
-          <button
-            onClick={onPrintCV}
-            className="hover:text-zinc-200 transition-colors flex items-center space-x-1"
-          >
-            <Printer className="w-3.5 h-3.5 mr-1" />
-            <span>Print Dossier</span>
-          </button>
         </div>
 
         {/* Return to Top */}
