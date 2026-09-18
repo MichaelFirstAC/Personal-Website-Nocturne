@@ -30,6 +30,34 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
     }
   ];
 
+  const terminalLogs = [
+    "Boot sequence initiated...",
+    "Establishing secure connection... [OK]",
+    "Syncing global state variables...",
+    "Bypassing security protocols... [WARN]",
+    "Calibrating logic gates...",
+    "Initializing neural pathways...",
+    "Loading narrative matrices... [OK]",
+    "Compiling community modules...",
+    "Allocating memory buffers...",
+    "Executing pre-flight checks...",
+    "Validating checksums... [OK]",
+    "Decrypting payload... 99%",
+    "Initializing UI components...",
+    "Rendering visual assets...",
+    "Connecting to backend services...",
+    "Establishing WebRTC tunnel... [OK]",
+    "Checking for updates...",
+    "No updates found. Running latest build.",
+    "Activating core subsystems...",
+    "System temperature optimal.",
+    "Starting main execution loop...",
+    "Awaiting user input...",
+    "Ping latency: 12ms",
+    "Handshake successful.",
+    "SYSTEM.ONLINE"
+  ];
+
   return (
     <section
       id="manifesto"
@@ -112,30 +140,30 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
             ))}
 
             {/* Digital Terminal Animation Box */}
-            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950/80 text-xs font-mono-code relative overflow-hidden group h-32 flex flex-col justify-end shadow-sm">
-              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none z-10" />
-              
-              <div className="relative z-20 space-y-1.5 text-[10px] text-emerald-500/80 tracking-wider">
-                <div className="flex items-center space-x-2">
-                  <span className="text-zinc-500">{'>'}</span>
-                  <span>Initializing neural pathways...</span>
-                </div>
-                <div className="flex items-center space-x-2 opacity-70">
-                  <span className="text-zinc-500">{'>'}</span>
-                  <span>Loading narrative matrices... [OK]</span>
-                </div>
-                <div className="flex items-center space-x-2 opacity-50">
-                  <span className="text-zinc-500">{'>'}</span>
-                  <span>Compiling community modules...</span>
-                </div>
-                <div className="flex items-center space-x-2 mt-2 pt-1 border-t border-zinc-900/50">
-                  <span className="text-emerald-400 font-bold">SYSTEM.ONLINE</span>
-                  <span className="w-1.5 h-3 bg-emerald-400 animate-pulse block" />
+            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950 text-xs font-mono-code relative overflow-hidden group h-[200px] shadow-sm">
+              {/* Scanlines Overlay */}
+              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none z-20" />
+
+              {/* Vertical Fade Edges */}
+              <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-transparent to-zinc-950 pointer-events-none z-30" />
+
+              {/* Scrolling Container */}
+              <div className="relative z-10 text-[10px] text-emerald-500/80 tracking-wider w-full h-full">
+                <div className="animate-terminal-scroll flex flex-col">
+                  {[...terminalLogs, ...terminalLogs].map((log, idx) => (
+                    <div key={idx} className="flex items-center space-x-2 py-0.5">
+                      <span className="text-zinc-500 shrink-0">{'>'}</span>
+                      <span className={log === 'SYSTEM.ONLINE' ? 'text-emerald-400 font-bold' : ''}>{log}</span>
+                      {log === 'SYSTEM.ONLINE' && (
+                        <span className="w-1.5 h-3 bg-emerald-400 animate-pulse block" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* Status Indicators */}
-              <div className="absolute top-3 right-3 flex space-x-1.5 z-20">
+              <div className="absolute top-3 right-3 flex space-x-1.5 z-40">
                 <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite]" />
                 <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite_200ms]" />
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-[pulse_2s_infinite_400ms]" />

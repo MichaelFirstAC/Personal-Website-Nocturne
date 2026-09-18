@@ -15,6 +15,7 @@ export interface ProfileInfo {
   location: string;
   status: string;
   email: string;
+  secondaryEmail?: string;
   pgpKey: string;
   phonePlaceholder: string;
   github: string;

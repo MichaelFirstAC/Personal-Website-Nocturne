@@ -44,26 +44,38 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
               </div>
 
               <div className="space-y-2.5 text-xs font-mono-code">
-                <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex items-center justify-between">
-                  <span className="text-zinc-500 uppercase">Primary Email:</span>
+                <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
+                  <span className="text-zinc-500 uppercase shrink-0">Primary Email:</span>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="text-zinc-200 hover:text-white transition-colors"
+                    className="text-zinc-200 hover:text-white transition-colors break-all sm:text-right"
                   >
                     {profile.email}
                   </a>
                 </div>
 
-                {profile.phonePlaceholder && (
-                  <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex items-center justify-between">
-                    <span className="text-zinc-500 uppercase">Phone:</span>
-                    <span className="text-zinc-300">{profile.phonePlaceholder}</span>
+                {profile.secondaryEmail && (
+                  <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
+                    <span className="text-zinc-500 uppercase shrink-0">Secondary Email:</span>
+                    <a
+                      href={`mailto:${profile.secondaryEmail}`}
+                      className="text-zinc-200 hover:text-white transition-colors break-all sm:text-right"
+                    >
+                      {profile.secondaryEmail}
+                    </a>
                   </div>
                 )}
 
-                <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex items-center justify-between">
-                  <span className="text-zinc-500 uppercase">Location:</span>
-                  <span className="text-zinc-300">{profile.location}</span>
+                {profile.phonePlaceholder && (
+                  <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
+                    <span className="text-zinc-500 uppercase shrink-0">Phone:</span>
+                    <span className="text-zinc-300 break-words sm:text-right">{profile.phonePlaceholder}</span>
+                  </div>
+                )}
+
+                <div className="p-3 rounded-md bg-zinc-900/70 border border-zinc-850 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
+                  <span className="text-zinc-500 uppercase shrink-0">Location:</span>
+                  <span className="text-zinc-300 break-words sm:text-right">{profile.location}</span>
                 </div>
               </div>
 
@@ -97,10 +109,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
                       </a>
                     )}
                     {profile.discord && (
-                      <div className="px-3 py-2 rounded-md border border-zinc-800 hover:border-zinc-600 bg-zinc-900 text-zinc-300 hover:text-white flex items-center justify-center space-x-1.5 text-xs font-mono-code transition-colors cursor-copy" onClick={() => navigator.clipboard.writeText(profile.discord)}>
+                      <a
+                        href={profile.discord}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-2 rounded-md border border-zinc-800 hover:border-zinc-600 bg-zinc-900 text-zinc-300 hover:text-white flex items-center justify-center space-x-1.5 text-xs font-mono-code transition-colors"
+                      >
                         <MessageSquare className="w-3.5 h-3.5" />
-                        <span>Discord: {profile.discord}</span>
-                      </div>
+                        <span>Discord</span>
+                      </a>
                     )}
                     {profile.linkedin && (
                       <a

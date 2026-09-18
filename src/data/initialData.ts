@@ -11,17 +11,19 @@ export const initialProfile: ProfileInfo = {
   manifesto: [
     'My engineering philosophy is rooted in relentless technical curiosity. I never just stick to one lane—one week I\'m building full-stack applications with Next.js and Firebase, the next I\'m running Graph Neural Networks for drug repurposing, and then I\'m diving into penetration testing on Kali Linux.',
     'I believe that the highly analytical side of computer science needs to be balanced with creative narrative. Whether it\'s co-writing fiction, analyzing villain archetypes, or geeking out over Majapahit history, I bring a storytelling perspective to my technical logic.',
-    'Ultimately, I build things to solve real problems and optimize life, always alongside a community. From leading GDG campus events to exchanging machine learning feedback, I thrive on collaboration—fueled by an unwavering loyalty to good food, and absolutely zero runny eggs.'
+    'Ultimately, I build things to solve real problems and optimize life, always alongside a community. From leading GDG campus events to exchanging machine learning feedback, I thrive on collaboration—fueled by an unwavering loyalty to good food and entertainment.',
+    '"To gain, one must lose another. Even heaven demands death."',
   ],
   location: 'Jakarta, Indonesia',
   status: 'OPEN TO OPPORTUNITIES & COLLABORATIONS',
   email: 'mchandrarietta@gmail.com',
-  phonePlaceholder: '+6281574122635',
+  secondaryEmail: 'michael.chandrarietta@binus.ac.id',
+  phonePlaceholder: 'Inquire through Email',
   pgpKey: '',
   github: 'https://github.com/MichaelFirstAC',
   twitter: '',
   linkedin: 'https://www.linkedin.com/in/michael-arianno-chandrarieta-06bb0928a/',
-  discord: '503029413764399105',
+  discord: 'https://discord.com/users/503029413764399105',
   instagram: 'https://www.instagram.com/michael.arianno/'
 };
 

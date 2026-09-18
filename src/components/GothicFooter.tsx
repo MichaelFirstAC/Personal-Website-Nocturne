@@ -20,7 +20,7 @@ export const GothicFooter: React.FC<GothicFooterProps> = ({ profile }) => {
             {profile.name}
           </div>
           <div className="font-serif italic text-zinc-400 text-sm tracking-wide">
-            &ldquo;In Tenebris Lux Architecturae — Verbum Invariantis Manet In Aeternum.&rdquo;
+            &ldquo;"I slept, with the poets lips as my pillow."&rdquo;
           </div>
         </div>
 

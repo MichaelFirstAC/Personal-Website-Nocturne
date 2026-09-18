@@ -216,7 +216,10 @@ const Companion = ({
         </div>
         
         {/* Chat bubble on hover */}
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-zinc-900 border border-zinc-500 text-zinc-300 text-[9px] font-mono-code px-2 py-1 rounded whitespace-nowrap pointer-events-none shadow-lg z-10">
+        <div 
+          className="absolute -top-6 left-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-zinc-900 border border-zinc-500 text-zinc-300 text-[9px] font-mono-code px-2 py-1 rounded whitespace-nowrap pointer-events-none shadow-lg z-10"
+          style={{ transform: `translateX(-50%) scale(${1 / scale})`, transformOrigin: 'bottom center' }}
+        >
           {speech}
         </div>
       </div>

@@ -184,3 +184,12 @@
     background: #ffffff !important;
   }
 }
+
+@keyframes terminal-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-terminal-scroll {
+  animation: terminal-scroll 30s linear infinite;
+}

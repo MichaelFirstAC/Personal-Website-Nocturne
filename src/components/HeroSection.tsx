@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="space-y-3 mb-6"
           >
             <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl tracking-tight text-zinc-100 font-light select-all leading-none">
-              {profile.name}
+              MichaelFirstAC
             </h1>
             <div className="text-sm sm:text-base font-mono-code tracking-[0.2em] text-zinc-400 uppercase">
               {profile.title}
