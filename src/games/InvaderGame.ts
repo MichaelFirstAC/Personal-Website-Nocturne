@@ -3,6 +3,8 @@
  * Canvas-based, classic grid movement with shields.
  */
 
+import { playSound } from './audioUtils';
+
 export interface GameHandle {
   stop: () => void;
 }
@@ -166,6 +168,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
     shootCooldown -= dt;
     if ((keys[' '] || keys['ArrowUp'] || keys['w']) && shootCooldown <= 0) {
       bullets.push({ x: player.x, y: player.y - 12 });
+      playSound('shoot');
       shootCooldown = 0.35;
     }
 
@@ -178,6 +181,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
       for (const s of shields) {
         if (s.hp > 0 && Math.abs(bullets[i]?.x - s.x) < 22 && Math.abs(bullets[i]?.y - s.y) < 12) {
           s.hp--;
+          playSound('blip');
           bullets.splice(i, 1);
           break;
         }
@@ -228,6 +232,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
       for (const s of shields) {
         if (s.hp > 0 && Math.abs(eb.x - s.x) < 22 && Math.abs(eb.y - s.y) < 12) {
           s.hp--;
+          playSound('blip');
           enemyBullets.splice(i, 1);
           break;
         }
@@ -238,6 +243,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
       if (Math.abs(eb.x - player.x) < 14 && Math.abs(eb.y - player.y) < 10) {
         enemyBullets.splice(i, 1);
         lives--;
+        playSound('explosion');
         spawnParticles(player.x, player.y, '#ef4444', 12);
         if (lives <= 0) gameOver = true;
       }
@@ -253,6 +259,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
           inv.alive = false;
           bullets.splice(bi, 1);
           score += 50 + inv.row * 30;
+          playSound('explosion');
           const rowColors = ['#22d3ee', '#a855f7', '#ef4444', '#facc15', '#34d399'];
           spawnParticles(inv.x, inv.y, rowColors[inv.row % 5], 8);
           break;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface Props {
@@ -9,6 +9,17 @@ interface Props {
 export const GolshiTakeover: React.FC<Props> = ({ onComplete, isActivating }) => {
   const [flash, setFlash] = useState(false);
   const hasPlayedRef = useRef(false);
+
+  const particles = useMemo(() => {
+    return Array.from({ length: 80 }).map((_, i) => {
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 200 + Math.random() * 1200;
+      const size = 4 + Math.random() * 8;
+      const color = ['#ef4444', '#facc15', '#22d3ee', '#ec4899', '#34d399'][Math.floor(Math.random() * 5)];
+      const delay = 0.15 + Math.random() * 0.2; // roughly when Goldship hits
+      return { id: i, angle, velocity, size, color, delay };
+    });
+  }, []);
 
   useEffect(() => {
     if (isActivating) {
@@ -61,6 +72,32 @@ export const GolshiTakeover: React.FC<Props> = ({ onComplete, isActivating }) =>
 
       {isActivating && (
         <>
+          {/* Fireworks Particles */}
+          {particles.map((p) => (
+            <motion.div
+              key={p.id}
+              className="absolute rounded-full z-0"
+              style={{
+                width: p.size,
+                height: p.size,
+                backgroundColor: p.color,
+                boxShadow: `0 0 ${p.size * 2}px ${p.color}`,
+              }}
+              initial={{ x: 0, y: 0, scale: 0, opacity: 1 }}
+              animate={{
+                x: Math.cos(p.angle) * p.velocity,
+                y: Math.sin(p.angle) * p.velocity + 300, // add a little gravity effect
+                scale: [0, 1, 0],
+                opacity: [1, 1, 0]
+              }}
+              transition={{
+                duration: 1.5,
+                delay: p.delay,
+                ease: "easeOut"
+              }}
+            />
+          ))}
+
           {/* Goldship dropkick across screen */}
           <motion.img
             src="/golshipopup.png"
@@ -77,7 +114,7 @@ export const GolshiTakeover: React.FC<Props> = ({ onComplete, isActivating }) =>
             transition={{ duration: 2.0, delay: 0.2, times: [0, 0.05, 0.85, 1], ease: 'easeInOut' }}
           />
 
-          {/* Text "MADE OF GOLD!" */}
+          {/* Text "GOLDSHIP IS HERE!" */}
           <motion.div
             className="absolute text-[12rem] drop-shadow-[0_0_30px_rgba(250,204,21,1)] whitespace-nowrap z-20 leading-none flex"
             style={{ fontFamily: 'Impact, sans-serif', fontStyle: 'italic' }}
@@ -89,7 +126,7 @@ export const GolshiTakeover: React.FC<Props> = ({ onComplete, isActivating }) =>
             }}
             transition={{ duration: 2.0, times: [0, 0.05, 0.85, 1] }}
           >
-            {"TRAINER ALERT!".split('').map((char, index) => {
+            {"GOLDSHIP ALERT!".split('').map((char, index) => {
               if (char === ' ') return <span key={index} className="w-8"></span>;
               return (
                 <span

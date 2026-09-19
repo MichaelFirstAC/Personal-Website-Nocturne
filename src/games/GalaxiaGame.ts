@@ -3,6 +3,8 @@
  * Canvas-based, lean retro tribute.
  */
 
+import { playSound } from './audioUtils';
+
 export interface GameHandle {
   stop: () => void;
 }
@@ -139,6 +141,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
     shootCooldown -= dt;
     if ((keys[' '] || keys['ArrowUp'] || keys['w']) && shootCooldown <= 0) {
       bullets.push({ x: player.x, y: player.y - 12 });
+      playSound('shoot');
       shootCooldown = 0.18;
     }
 
@@ -187,6 +190,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
       if (b && Math.abs(b.x - player.x) < 14 && Math.abs(b.y - player.y) < 12) {
         enemyBullets.splice(i, 1);
         lives--;
+        playSound('explosion');
         spawnParticles(player.x, player.y, '#ef4444', 15);
         if (lives <= 0) gameOver = true;
       }
@@ -200,6 +204,7 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
           e.alive = false;
           bullets.splice(bi, 1);
           score += 100 + e.type * 50;
+          playSound('explosion');
           const colors = ['#a855f7', '#ef4444', '#22d3ee'];
           spawnParticles(e.x, e.y, colors[e.type % 3], 10);
           break;

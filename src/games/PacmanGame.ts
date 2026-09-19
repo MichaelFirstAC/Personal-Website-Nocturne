@@ -3,6 +3,8 @@
  * Canvas-based with smooth pixel-interpolated movement, ghost AI, and power pellets.
  */
 
+import { playSound } from './audioUtils';
+
 export interface GameHandle {
   stop: () => void;
 }
@@ -349,9 +351,11 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
         if (g.scared) {
           g.eaten = true;
           score += 200;
+          playSound('blip');
           spawnParticles(g.tileX, g.tileY, '#22d3ee', 8);
         } else {
           lives--;
+          playSound('death');
           spawnParticles(player.tileX, player.tileY, '#facc15', 12);
           if (lives <= 0) {
             gameOver = true;
@@ -399,10 +403,12 @@ export function start(canvas: HTMLCanvasElement): GameHandle {
       if (cell === '.') {
         maze[player.tileY][player.tileX] = ' ';
         score += 10;
+        playSound('eat');
         dotsRemaining--;
       } else if (cell === 'O') {
         maze[player.tileY][player.tileX] = ' ';
         score += 50;
+        playSound('powerup');
         dotsRemaining--;
         powerTimer = 6;
         for (const g of ghosts) g.scared = true;
