@@ -9,9 +9,9 @@ export const initialProfile: ProfileInfo = {
   bioSummary:
     'A Computer Science student at BINUS International, Jakarta — passionate about building things across Game Development, Web Development, and Data Science. I enjoy turning complex ideas into clean, working software.',
   manifesto: [
-    'My engineering philosophy is rooted in relentless technical curiosity. I never just stick to one lane—one week I\'m building full-stack applications with Next.js and Firebase, the next I\'m running Graph Neural Networks for drug repurposing, and then I\'m diving into penetration testing on Kali Linux.',
-    'I believe that the highly analytical side of computer science needs to be balanced with creative narrative. Whether it\'s co-writing fiction, analyzing villain archetypes, or geeking out over Majapahit history, I bring a storytelling perspective to my technical logic.',
-    'Ultimately, I build things to solve real problems and optimize life, always alongside a community. From leading GDG campus events to exchanging machine learning feedback, I thrive on collaboration—fueled by an unwavering loyalty to good food and entertainment.',
+    "I'm not the kind of engineer who stays in one lane. I thrive on diving down technical rabbit holes—whether that means building full-stack apps with Next.js one week, experimenting with Graph Neural Networks for drug repurposing the next, or spinning up Kali Linux just to see how things break.",
+    "But code without context is just math. I've always felt that the cold, analytical side of computer science needs to be grounded in creative storytelling. Whether I'm co-writing fiction, breaking down villain archetypes, or geeking out over deep historical lore, it all bleeds into how I think about user experience and problem-solving.",
+    "At the end of the day, I just love building cool things with cool people. Whether I'm running events for our GDG campus chapter or trading machine learning notes with friends over some ridiculously good food, I'm all about collaboration. We build better when we build together.",
     '"To gain, one must lose another. Even heaven demands death."',
   ],
   location: 'Jakarta, Indonesia',

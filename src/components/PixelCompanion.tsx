@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, useAnimation, useMotionValue } from 'motion/react';
+import { useArcade, CompanionId } from './ArcadeContext';
 
 const COLOR_MAP: Record<string, string> = {
   'W': '#e4e4e7', // Zinc 200 (White)
@@ -114,6 +115,7 @@ const PixelSprite = ({ frame }: { frame: string[] }) => {
 };
 
 const Companion = ({
+  companionId,
   frames,
   duration,
   speech,
@@ -123,6 +125,7 @@ const Companion = ({
   startRight = false,
   constraintsRef
 }: {
+  companionId: CompanionId,
   frames: string[][],
   duration: number,
   speech: string,
@@ -130,7 +133,7 @@ const Companion = ({
   flip?: boolean,
   scale?: number,
   startRight?: boolean,
-  constraintsRef: React.RefObject<HTMLDivElement>
+  constraintsRef: React.RefObject<HTMLDivElement | null>
 }) => {
   const [frame, setFrame] = useState(0);
   const controls = useAnimation();
@@ -139,7 +142,26 @@ const Companion = ({
 
   const [facingRight, setFacingRight] = useState(!startRight);
   const [isPaused, setIsPaused] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const dragTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const companionRef = useRef<HTMLDivElement>(null);
+
+  const { setDragging, isOverDock, setDockHovered, launchGame, activeGame } = useArcade();
+
+  // Hide companion while its game is active
+  useEffect(() => {
+    if (activeGame === companionId) {
+      setHidden(true);
+      setIsPaused(true);
+    } else if (activeGame === null && hidden) {
+      // Game closed, restore companion
+      setHidden(false);
+      if (dragTimeoutRef.current) clearTimeout(dragTimeoutRef.current);
+      dragTimeoutRef.current = setTimeout(() => {
+        setIsPaused(false);
+      }, 1000);
+    }
+  }, [activeGame, companionId, hidden]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -184,24 +206,46 @@ const Companion = ({
     };
   }, [isPaused, windowWidth, facingRight, duration, controls, x]);
 
-  const handleDragStart = () => {
+  const handleDragStart = useCallback(() => {
     setIsPaused(true);
     if (dragTimeoutRef.current) clearTimeout(dragTimeoutRef.current);
-  };
+  }, []);
 
-  const handleDragEnd = () => {
+  const handleDrag = useCallback((_: any, info: { point: { x: number; y: number } }) => {
+    const { x: px, y: py } = info.point;
+    setDragging({ id: companionId, x: px, y: py });
+    setDockHovered(isOverDock(px, py));
+  }, [companionId, setDragging, isOverDock, setDockHovered]);
+
+  const handleDragEnd = useCallback((_: any, info: { point: { x: number; y: number } }) => {
+    const { x: px, y: py } = info.point;
+
+    if (isOverDock(px, py)) {
+      // Drop on dock — launch game!
+      launchGame(companionId);
+      setDragging(null);
+      return;
+    }
+
+    setDragging(null);
+    setDockHovered(false);
+
     dragTimeoutRef.current = setTimeout(() => {
       setIsPaused(false);
     }, 5000);
-  };
+  }, [companionId, isOverDock, launchGame, setDragging, setDockHovered]);
+
+  if (hidden) return null;
 
   return (
     <motion.div
+      ref={companionRef}
       drag
       dragConstraints={constraintsRef}
       dragElastic={0.1}
       dragMomentum={false}
       onDragStart={handleDragStart}
+      onDrag={handleDrag}
       onDragEnd={handleDragEnd}
       className="absolute z-50 pointer-events-auto cursor-grab"
       style={{ ...position, x }}
@@ -232,7 +276,8 @@ export const PixelCompanion: React.FC = () => {
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none z-50">
-      <Companion 
+      <Companion
+        companionId="galaxia"
         frames={[SPACESHIP_FRAME_1, SPACESHIP_FRAME_2]} 
         duration={50} 
         speech="*vroom*" 
@@ -240,7 +285,8 @@ export const PixelCompanion: React.FC = () => {
         scale={0.6}
         constraintsRef={containerRef}
       />
-      <Companion 
+      <Companion
+        companionId="invader"
         frames={[INVADER_FRAME_1, INVADER_FRAME_2]} 
         duration={55} 
         speech="*pew pew*" 
@@ -249,7 +295,8 @@ export const PixelCompanion: React.FC = () => {
         scale={0.9}
         constraintsRef={containerRef}
       />
-      <Companion 
+      <Companion
+        companionId="pacman"
         frames={[PACMAN_FRAME_1, PACMAN_FRAME_2]} 
         duration={40} 
         speech="*waka waka*" 

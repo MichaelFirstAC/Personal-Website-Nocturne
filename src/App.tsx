@@ -15,6 +15,7 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { AccreditationsSection } from './components/AccreditationsSection';
 import { ContactSection } from './components/ContactSection';
 import { GothicFooter } from './components/GothicFooter';
+import { playGlobalClick } from './utils/audio';
 import {
   initialProfile,
   initialProjects,
@@ -33,6 +34,29 @@ export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scanlinesActive, setScanlinesActive] = useState(false);
 
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      // Play sound if clicked on an interactive element
+      if (
+        target.tagName === 'BUTTON' || 
+        target.tagName === 'A' || 
+        target.closest('button') || 
+        target.closest('a') ||
+        window.getComputedStyle(target).cursor === 'pointer'
+      ) {
+        // Prevent playing global click on the specific elements that have their own sounds
+        // by checking if they don't have a special data attribute (which we will add).
+        if (!target.closest('[data-custom-sound="true"]')) {
+          playGlobalClick();
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleGlobalClick);
+    return () => document.removeEventListener('click', handleGlobalClick);
+  }, []);
+
   // Scroll Progress Listener for dynamic scroll-triggered header and ambient shadow depth
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +68,6 @@ export default function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-
 
   return (
     <div className="min-h-screen bg-[#050507] text-[#ded8cf] selection:bg-[#c5a059]/30 selection:text-[#f3efe6] relative font-sans overflow-hidden">

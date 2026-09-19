@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Menu, X, Monitor } from 'lucide-react';
 import { ProfileInfo } from '../types';
+import { AudioPlayer } from './AudioPlayer';
 
 interface NavigationProps {
   profile: ProfileInfo;
@@ -16,6 +17,32 @@ export const Navigation: React.FC<NavigationProps> = ({
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('dossier');
+  
+  // Audio state
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.05;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isMusicPlaying) {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.error("Audio playback failed:", error);
+            setIsMusicPlaying(false);
+          });
+        }
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isMusicPlaying]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,6 +86,15 @@ export const Navigation: React.FC<NavigationProps> = ({
           : 'bg-transparent border-b border-white/5 py-3'
       }`}
     >
+      {/* Hidden Audio Element */}
+      <audio
+        ref={audioRef}
+        src="/bg-music.mp3"
+        loop
+        autoPlay
+        preload="auto"
+      />
+
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
         {/* Monogram & Brand */}
         <a
@@ -107,7 +143,12 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="hidden lg:block w-px h-5 bg-zinc-800 shrink-0" />
 
         {/* Header Action Buttons */}
-        <div className="hidden lg:flex items-center gap-1 shrink-0">
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <AudioPlayer 
+            isPlaying={isMusicPlaying} 
+            onToggle={() => setIsMusicPlaying(!isMusicPlaying)} 
+          />
+          
           {/* CRT Scanline Toggle */}
           <button
             onClick={onToggleScanlines}
@@ -135,7 +176,11 @@ export const Navigation: React.FC<NavigationProps> = ({
         </div>
 
         {/* Mobile / Tablet menu toggle */}
-        <div className="flex lg:hidden items-center gap-1.5 ml-auto">
+        <div className="flex lg:hidden items-center gap-2 ml-auto">
+          <AudioPlayer 
+            isPlaying={isMusicPlaying} 
+            onToggle={() => setIsMusicPlaying(!isMusicPlaying)} 
+          />
           <button
             onClick={onToggleScanlines}
             className={`p-1.5 rounded border text-xs ${

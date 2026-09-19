@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, MapPin, Globe, Compass, Lock, Code2, Sparkles, CheckCircle2 } from 'lucide-react';
 import { ProfileInfo } from '../types';
 import { DisintegrateOnScroll } from './DisintegrateOnScroll';
+import { GolshiTakeover } from './GolshiTakeover';
+import { playPrankClick } from '../utils/audio';
 
 interface ManifestoSectionProps {
   profile: ProfileInfo;
 }
 
 export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) => {
+  const [isTakingOver, setIsTakingOver] = useState(false);
+
+  const handleGolshiClick = () => {
+    playPrankClick();
+    setIsTakingOver(true);
+  };
+
   const tenets = [
     {
       roman: 'I',
@@ -31,31 +40,31 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
   ];
 
   const terminalLogs = [
-    "Boot sequence initiated...",
-    "Establishing secure connection... [OK]",
-    "Syncing global state variables...",
-    "Bypassing security protocols... [WARN]",
-    "Calibrating logic gates...",
-    "Initializing neural pathways...",
-    "Loading narrative matrices... [OK]",
-    "Compiling community modules...",
-    "Allocating memory buffers...",
-    "Executing pre-flight checks...",
-    "Validating checksums... [OK]",
-    "Decrypting payload... 99%",
-    "Initializing UI components...",
-    "Rendering visual assets...",
-    "Connecting to backend services...",
-    "Establishing WebRTC tunnel... [OK]",
-    "Checking for updates...",
-    "No updates found. Running latest build.",
-    "Activating core subsystems...",
-    "System temperature optimal.",
-    "Starting main execution loop...",
-    "Awaiting user input...",
-    "Ping latency: 12ms",
-    "Handshake successful.",
-    "SYSTEM.ONLINE"
+    "PakaTuber protocol initiated...",
+    "Establishing connection to Tracen Academy... [OK]",
+    "Deploying mysterious sunglasses...",
+    "Solving Rubik's cube... [3.01s]",
+    "Eating yakisoba... 99%",
+    "Bypassing starting gate protocols... [WARN]",
+    "12 Billion Yen Paper Scraps... [Takarazuka 2015]",
+    "Loading The Creature, Gold Ship...",
+    "Allocating stamina buffers...",
+    "Dropkicking the Trainer... [OK]",
+    "Validating beauty metrics... [Number One!]",
+    "Decrypting McQueen's payload... 99%",
+    "Initializing Unsinkable Battleship mode...",
+    "Roaring at the crowd... [OK]",
+    "Connecting to Tazuna..",
+    "Establishing Golshi tunnel... [OK]",
+    "Checking for carrots...",
+    "No carrots found. Running rampage build.",
+    "Activating Gold subsystems...",
+    "System temperature: Peace-peacccccce!!!",
+    "Starting main gate...",
+    "Gate delay latency: 120ms",
+    "Handshake successful (bit the groom).",
+    "GOLSHI.EXE IS ONLINE!!!!",
+    "TRAINER! LOOK AT THIS! SO COOL!!!"
   ];
 
   return (
@@ -140,7 +149,7 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
             ))}
 
             {/* Digital Terminal Animation Box */}
-            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950 text-xs font-mono-code relative overflow-hidden group h-[200px] shadow-sm">
+            <div className="p-5 rounded-lg border border-zinc-850 bg-zinc-950 text-xs font-mono-code relative overflow-hidden group h-56 shadow-sm">
               {/* Scanlines Overlay */}
               <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none z-20" />
 
@@ -148,14 +157,19 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
               <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-transparent to-zinc-950 pointer-events-none z-30" />
 
               {/* Scrolling Container */}
-              <div className="relative z-10 text-[10px] text-emerald-500/80 tracking-wider w-full h-full">
+              <div className="relative z-10 text-[10px] tracking-wider w-full h-full">
                 <div className="animate-terminal-scroll flex flex-col">
                   {[...terminalLogs, ...terminalLogs].map((log, idx) => (
                     <div key={idx} className="flex items-center space-x-2 py-0.5">
                       <span className="text-zinc-500 shrink-0">{'>'}</span>
-                      <span className={log === 'SYSTEM.ONLINE' ? 'text-emerald-400 font-bold' : ''}>{log}</span>
-                      {log === 'SYSTEM.ONLINE' && (
-                        <span className="w-1.5 h-3 bg-emerald-400 animate-pulse block" />
+                      <span className={
+                        log === 'GOLSHI.ONLINE' ? 'text-red-500 font-bold'
+                          : (idx % 5 === 0) ? 'text-yellow-400/90'
+                            : (idx % 2 === 0) ? 'text-red-400/90'
+                              : 'text-zinc-200/90'
+                      }>{log}</span>
+                      {log === 'GOLSHI.ONLINE' && (
+                        <span className="w-1.5 h-3 bg-red-500 animate-pulse block" />
                       )}
                     </div>
                   ))}
@@ -166,12 +180,39 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ profile }) =
               <div className="absolute top-3 right-3 flex space-x-1.5 z-40">
                 <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite]" />
                 <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-[pulse_2s_infinite_200ms]" />
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-[pulse_2s_infinite_400ms]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-red-500/50 animate-[pulse_2s_infinite_400ms]" />
+              </div>
+
+              {/* Goldship GIF Mascot */}
+              <div className="absolute bottom-1 right-6 z-40 opacity-60 group-hover:opacity-100 transition-opacity duration-500 group/golshi">
+                {/* Speech Bubble */}
+                <div className="absolute -top-6 -right-2 opacity-0 group-hover/golshi:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                  <div className="bg-zinc-900 border border-zinc-700 text-zinc-300 text-xs font-sans px-3 py-1.5 rounded-lg whitespace-nowrap shadow-xl relative">
+                    Hey Hey Trainer! Check This Out!
+                    {/* Bubble tail */}
+                    <div className="absolute -bottom-1 right-12 w-2 h-2 bg-zinc-900 border-b border-r border-zinc-700 rotate-45" />
+                  </div>
+                </div>
+
+                <img
+                  src="/gold-ship-uma-musume.gif"
+                  alt="Terminal Mascot"
+                  data-custom-sound="true"
+                  onClick={handleGolshiClick}
+                  className="w-32 h-32 object-contain drop-shadow-[0_0_8px_rgba(239,68,68,0.3)] cursor-pointer active:scale-95 transition-transform"
+                />
               </div>
             </div>
           </DisintegrateOnScroll>
         </div>
       </div>
+
+      {isTakingOver && (
+        <GolshiTakeover
+          isActivating={true}
+          onComplete={() => setIsTakingOver(false)}
+        />
+      )}
     </section>
   );
 };
