@@ -390,9 +390,10 @@ export const initialSkills: SkillCategory[] = [
 export const initialExperience: ExperienceRole[] = [
   {
     id: 'exp-binus-cs',
-    title: 'Computer Science Student',
+    role: 'Computer Science Student',
     organization: 'BINUS International University',
     seal: 'BI',
+    location: 'Jakarta, Indonesia',
     period: '2024 — 2027',
     summary:
       'Pursuing a Bachelor of Science in Computer Science with focus areas in web development, game development, data science, and algorithm design.',
@@ -406,9 +407,10 @@ export const initialExperience: ExperienceRole[] = [
   },
   {
     id: 'exp-rmit',
-    title: 'Double Degree CS Program',
+    role: 'Double Degree CS Program',
     organization: 'RMIT University',
     seal: 'RMIT',
+    location: 'Melbourne, Australia',
     period: '2028',
     summary:
       'Transitioning to RMIT University to complete the dual degree program, expanding on global tech perspectives and advanced computing modules.',

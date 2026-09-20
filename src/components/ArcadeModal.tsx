@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useArcade, CompanionId } from './ArcadeContext';
-import { X } from 'lucide-react';
+import { X, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const GAME_NAMES: Record<CompanionId, string> = {
   galaxia: 'GALAXIA',
@@ -15,11 +15,42 @@ const GAME_COLORS: Record<CompanionId, string> = {
   pacman: '#facc15',
 };
 
+const triggerKey = (key: string, type: 'keydown' | 'keyup') => {
+  window.dispatchEvent(new KeyboardEvent(type, { key }));
+};
+
+const MobileButton = ({ 
+  icon, 
+  actionKey, 
+  className = "" 
+}: { 
+  icon: React.ReactNode; 
+  actionKey: string; 
+  className?: string; 
+}) => {
+  return (
+    <button
+      onPointerDown={(e) => { e.preventDefault(); triggerKey(actionKey, 'keydown'); }}
+      onPointerUp={(e) => { e.preventDefault(); triggerKey(actionKey, 'keyup'); }}
+      onPointerLeave={(e) => { e.preventDefault(); triggerKey(actionKey, 'keyup'); }}
+      onContextMenu={(e) => e.preventDefault()}
+      className={`bg-zinc-800/80 backdrop-blur-sm border border-zinc-700 rounded-full flex items-center justify-center active:bg-zinc-600 transition-colors select-none touch-none ${className}`}
+    >
+      {icon}
+    </button>
+  );
+};
+
 export const ArcadeModal: React.FC = () => {
   const { activeGame, closeGame } = useArcade();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gameRef = useRef<{ stop: () => void } | null>(null);
   const [bootPhase, setBootPhase] = useState<'off' | 'flicker' | 'loading' | 'ready' | 'playing'>('off');
+  const [hasTouch, setHasTouch] = useState(false);
+
+  useEffect(() => {
+    setHasTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   // Boot sequence when game becomes active
   useEffect(() => {
@@ -189,14 +220,20 @@ export const ArcadeModal: React.FC = () => {
 
           {/* Game canvas — visible during 'playing' phase */}
           <motion.div
-            className="relative"
+            className="relative flex flex-col items-center justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{
               opacity: bootPhase === 'playing' ? 1 : 0,
               scale: bootPhase === 'playing' ? 1 : 0.95,
             }}
             transition={{ duration: 0.4 }}
-            style={{ width: '90vw', maxWidth: '600px', height: '80vh', maxHeight: '500px' }}
+            style={{ 
+              width: '90vw', 
+              maxWidth: '600px', 
+              height: hasTouch ? '55vh' : '80vh', 
+              maxHeight: '500px',
+              marginTop: hasTouch ? '-15vh' : '0'
+            }}
           >
             {/* CRT bezel */}
             <div
@@ -226,8 +263,8 @@ export const ArcadeModal: React.FC = () => {
               <X className="w-4 h-4 text-zinc-500 group-hover:text-red-400 transition-colors" />
             </button>
 
-            {/* Controls hint */}
-            {bootPhase === 'playing' && (
+            {/* Controls hint (desktop only) */}
+            {bootPhase === 'playing' && !hasTouch && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -238,6 +275,40 @@ export const ArcadeModal: React.FC = () => {
               </motion.div>
             )}
           </motion.div>
+
+          {/* Mobile On-Screen Controls */}
+          <AnimatePresence>
+            {hasTouch && bootPhase === 'playing' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="fixed bottom-8 left-0 right-0 px-6 flex justify-between items-end z-50 pointer-events-none"
+              >
+                {/* Virtual D-Pad */}
+                <div className="relative w-36 h-36 pointer-events-auto opacity-70">
+                  <MobileButton icon={<ArrowUp size={24} className="text-zinc-300" />} actionKey="ArrowUp" className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12" />
+                  <MobileButton icon={<ArrowDown size={24} className="text-zinc-300" />} actionKey="ArrowDown" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12" />
+                  <MobileButton icon={<ArrowLeft size={24} className="text-zinc-300" />} actionKey="ArrowLeft" className="absolute top-1/2 left-0 -translate-y-1/2 w-12 h-12" />
+                  <MobileButton icon={<ArrowRight size={24} className="text-zinc-300" />} actionKey="ArrowRight" className="absolute top-1/2 right-0 -translate-y-1/2 w-12 h-12" />
+                </div>
+                
+                {/* Action Buttons */}
+                <div className="flex gap-4 items-end pointer-events-auto opacity-80">
+                  <MobileButton 
+                    icon={<span className="font-bold text-lg font-mono-code">ESC</span>} 
+                    actionKey="Escape" 
+                    className="w-12 h-12 mb-2 bg-zinc-900/80 text-zinc-400" 
+                  />
+                  <MobileButton 
+                    icon={<span className="font-bold text-xl font-mono-code">A</span>} 
+                    actionKey=" " 
+                    className="w-16 h-16 bg-zinc-700/80 text-white border-zinc-500 shadow-[0_0_15px_rgba(255,255,255,0.1)]" 
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>

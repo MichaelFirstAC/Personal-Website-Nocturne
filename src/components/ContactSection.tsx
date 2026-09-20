@@ -8,6 +8,7 @@ interface ContactSectionProps {
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
+  const [copiedKey, setCopiedKey] = useState(false);
   const handleCopyPgp = () => {
     navigator.clipboard.writeText(profile.pgpKey);
     setCopiedKey(true);

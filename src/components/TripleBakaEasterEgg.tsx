@@ -176,7 +176,7 @@ export const TripleBakaEasterEgg: React.FC<Props> = ({ onComplete, isActivating 
                   animate={{ scale: 1, y: 0, opacity: 1 }}
                   exit={{ scale: 0.5, opacity: 0 }}
                   transition={{ type: "spring", bounce: 0.6 }}
-                  className="absolute top-[15%] md:top-[25%] z-40 text-[3rem] md:text-[5rem] font-black tracking-tighter text-blue-500 will-change-transform drop-shadow-md rotate-6"
+                  className="absolute top-[35%] md:top-[25%] z-40 text-[3rem] md:text-[5rem] font-black tracking-tighter text-blue-500 will-change-transform drop-shadow-md rotate-6"
                   style={{ WebkitTextStroke: '2px white' }}
                 >
                   BAKA!
