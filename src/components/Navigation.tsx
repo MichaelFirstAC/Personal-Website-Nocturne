@@ -103,7 +103,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           className="group flex items-center gap-2.5 text-left focus:outline-none shrink-0"
         >
           <div className="w-9 h-9 rounded-md border border-zinc-700 bg-zinc-200 flex items-center justify-center shrink-0 group-hover:border-zinc-400 group-hover:bg-white transition-all shadow-sm overflow-hidden p-0.5">
-            <img src="/logo.svg" alt="Logo" className="w-full h-full object-contain" />
+            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <div className="hidden xl:block shrink-0">
             <div className="text-[13px] font-medium text-zinc-100 group-hover:text-white transition-colors tracking-tight whitespace-nowrap leading-tight">

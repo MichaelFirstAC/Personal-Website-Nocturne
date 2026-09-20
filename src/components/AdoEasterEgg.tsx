@@ -63,27 +63,12 @@ export const AdoEasterEgg: React.FC<Props> = ({ onComplete, isActivating }) => {
           osc.stop(audioCtx.currentTime + 1.2);
         };
 
-        const playReveal = () => {
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-          
-          // Ethereal Am9 chord reveal
-          const freqs = [440, 523.25, 659.25, 783.99, 987.77]; 
-          freqs.forEach((freq, i) => {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            
-            gain.gain.setValueAtTime(0, audioCtx.currentTime);
-            gain.gain.linearRampToValueAtTime(0.05, audioCtx.currentTime + 0.5 + i * 0.1);
-            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 4);
-            
-            osc.start();
-            osc.stop(audioCtx.currentTime + 4);
-          });
+        const playRockstar = () => {
+          if (audioRef.current) {
+            audioRef.current.currentTime = 0;
+            audioRef.current.volume = 0.5;
+            audioRef.current.play().catch(console.error);
+          }
         };
 
         playBassDrop();
@@ -95,11 +80,16 @@ export const AdoEasterEgg: React.FC<Props> = ({ onComplete, isActivating }) => {
 
         const t2 = setTimeout(() => {
           setPhase(3);
-          playReveal();
+          playRockstar();
         }, 3000);
 
         const t3 = setTimeout(() => {
           setPhase(4);
+          // Fade out audio
+          if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+          }
         }, 10000); // Give the GIF 7 seconds to play
 
         const t4 = setTimeout(() => {
@@ -117,6 +107,10 @@ export const AdoEasterEgg: React.FC<Props> = ({ onComplete, isActivating }) => {
     } else {
       hasPlayedRef.current = false;
       setPhase(0);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
     }
   }, [isActivating, onComplete]);
 
@@ -130,6 +124,8 @@ export const AdoEasterEgg: React.FC<Props> = ({ onComplete, isActivating }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
+          {/* Rockstar audio */}
+          <audio ref={audioRef} src="/rockstarcuts.mp3" preload="auto" />
           {/* Background effects */}
           <motion.div 
             className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent mix-blend-screen"
