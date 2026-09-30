@@ -176,6 +176,52 @@ export const initialProjects: Project[] = [
     featured: true
   },
   {
+    id: 'project-sequence-aware-gnn',
+    title: 'Sequence-Aware GNN',
+    codeName: 'ML RESEARCH',
+    category: 'Data Science',
+    period: '2025',
+    summary:
+      'A machine learning project focusing on Sequence-Aware Graph Neural Networks for analyzing structured and sequential data representations.',
+    fullDescription:
+      'Explores the integration of sequential modeling with Graph Neural Networks to process data that has both temporal/sequential dependencies and graph-structured relationships. Useful in bioinformatics and complex system modeling.',
+    architecturalHighlights: [
+      'Hybrid model combining sequential and graph structures',
+      'Advanced representation learning',
+      'Implementation using modern deep learning frameworks'
+    ],
+    impactMetric: 'Research',
+    impactLabel: 'Advanced GNN Architecture',
+    technologies: ['Python', 'Graph Neural Networks', 'Machine Learning'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/Sequence-Aware-GNN'
+    },
+    featured: true
+  },
+  {
+    id: 'project-archipelago-gossip',
+    title: 'Archipelago Gossip Consensus',
+    codeName: 'DISTRIBUTED SYSTEMS',
+    category: 'Algorithms',
+    period: '2025',
+    summary:
+      'An implementation of the Gossip protocol for achieving distributed consensus across a network of nodes, simulated as an archipelago.',
+    fullDescription:
+      'Simulates a distributed system where nodes (islands) communicate and reach consensus using a gossip-based communication protocol. Demonstrates fault tolerance, scalability, and decentralized decision-making.',
+    architecturalHighlights: [
+      'Gossip protocol implementation for node communication',
+      'Distributed consensus mechanisms',
+      'Simulation of network delays and fault tolerance'
+    ],
+    impactMetric: 'Distributed',
+    impactLabel: 'Network Consensus Simulation',
+    technologies: ['Python', 'Distributed Systems', 'Algorithms'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/Archipelago-Gossip-Consensus'
+    },
+    featured: true
+  },
+  {
     id: 'project-event-manager',
     title: 'EventManager — Database CRUD App',
     codeName: 'DB TECH PROJECT',
@@ -272,63 +318,140 @@ export const initialProjects: Project[] = [
     featured: false
   },
   {
-    id: 'project-image-compressor',
-    title: 'Image Compressor & Optimizer',
-    codeName: 'IMAGE-COMPRESSOR',
+    id: 'project-lexical-scanner',
+    title: 'Lexical Scanner',
+    codeName: 'COMPILER DESIGN',
     category: 'Algorithms',
     period: '2025',
-    summary: 'A sophisticated image compression tool implementing core algorithms built for the Algorithm Design and Analysis final project.',
-    fullDescription: 'Developed an efficient image compressor showcasing advanced algorithm design. Implements compression techniques to significantly reduce file sizes while maintaining visual fidelity, built as a capstone project for ADA.',
+    summary:
+      'A custom lexical analyzer (scanner) implementation for tokenizing source code, forming the foundational phase of a compiler.',
+    fullDescription:
+      'Implements a robust lexical scanning engine that reads source code characters and converts them into a sequence of tokens. Handles various lexical rules including keywords, identifiers, operators, and literals.',
     architecturalHighlights: [
-      'Implementation of efficient compression algorithms',
-      'Performance profiling and algorithmic optimization'
+      'Finite automaton implementation for token recognition',
+      'Efficient string processing and character categorization',
+      'Error handling for invalid lexical structures'
     ],
-    impactMetric: 'Algorithm Design',
-    impactLabel: 'Capstone ADA Project',
-    technologies: ['Python', 'Algorithms', 'Data Structures'],
+    impactMetric: 'Compiler',
+    impactLabel: 'Tokenization Engine',
+    technologies: ['C/C++', 'Compiler Theory', 'Algorithms'],
     links: {
-      repository: 'https://github.com/MichaelFirstAC/ImageCompressor'
+      repository: 'https://github.com/MichaelFirstAC/Lexical-Scanner'
     },
     featured: false
   },
   {
-    id: 'project-event-manager',
-    title: 'Event Management Database System',
-    codeName: 'EVENTMANAGER',
+    id: 'project-transcription-biology',
+    title: 'Transcription Computational Biology',
+    codeName: 'BIOINFORMATICS',
     category: 'Data Science',
     period: '2025',
-    summary: 'A robust database-backed event management system designed for the Database Technology final project.',
-    fullDescription: 'A comprehensive database management application built to handle complex relational data for event planning and execution. Features advanced queries, robust schema design, and transactional integrity.',
+    summary:
+      'A computational biology project focused on the transcription process, analyzing DNA-to-RNA sequence transformations and biological patterns.',
+    fullDescription:
+      'Provides tools and algorithms to simulate and analyze the biological process of transcription. Includes sequence matching, transcription factor binding site analysis, and related bioinformatics computations.',
     architecturalHighlights: [
-      'Relational database schema design and normalization',
-      'Complex SQL queries and data aggregation'
+      'DNA to RNA sequence translation algorithms',
+      'Bioinformatics pattern matching and analysis',
+      'Computational modeling of biological processes'
     ],
-    impactMetric: 'Database Tech',
-    impactLabel: 'Robust Architecture',
-    technologies: ['SQL', 'Database Design', 'Python'],
+    impactMetric: 'Bioinformatics',
+    impactLabel: 'DNA/RNA Analysis',
+    technologies: ['Python', 'Bioinformatics', 'Data Analysis'],
     links: {
-      repository: 'https://github.com/MichaelFirstAC/EventManager'
+      repository: 'https://github.com/MichaelFirstAC/Transcription-Computational-Biology'
     },
     featured: false
   },
   {
-    id: 'project-ethical-hacking',
-    title: 'Penetration Testing Framework',
-    codeName: 'PENTEST-REPORT',
+    id: 'project-pcap-analysis',
+    title: 'PCAP Analysis Report',
+    codeName: 'NETWORK SECURITY',
+    category: 'Algorithms',
+    period: '2026',
+    summary:
+      'An in-depth network traffic analysis report focusing on packet capture (PCAP) inspection to identify anomalies, security threats, and protocol behaviors.',
+    fullDescription:
+      'Detailed examination of network packets captured during various scenarios. Analyzes protocol headers, payload contents, and traffic patterns to detect potential intrusions or network configuration issues.',
+    architecturalHighlights: [
+      'Deep packet inspection and protocol analysis',
+      'Identification of network anomalies and security signatures',
+      'Traffic pattern visualization and reporting'
+    ],
+    impactMetric: 'Networking',
+    impactLabel: 'Traffic Analysis',
+    technologies: ['Wireshark', 'Network Protocols', 'Security Analysis'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/PCAP-Analysis-Report'
+    },
+    featured: false
+  },
+  {
+    id: 'project-dimac-kruskal-prim',
+    title: 'Dimac 9th Kruskal & Prim Algorithm',
+    codeName: 'GRAPH ALGORITHMS',
     category: 'Algorithms',
     period: '2025',
-    summary: 'Comprehensive ethical hacking and penetration testing report executed for BINUS International University.',
-    fullDescription: 'A detailed security analysis and penetration testing engagement focusing on vulnerability assessment, exploit identification, and mitigation strategies using Kali Linux and industry-standard tools.',
+    summary:
+      'An implementation and comparative study of Kruskal\'s and Prim\'s minimum spanning tree algorithms, specifically tailored for the DIMACS graph format.',
+    fullDescription:
+      'Explores the efficiency and implementation details of two fundamental graph algorithms for finding Minimum Spanning Trees (MST). Includes parsing standard DIMACS challenge format graphs and benchmarking algorithm performance.',
     architecturalHighlights: [
-      'Vulnerability scanning and threat modeling',
-      'Execution of controlled exploits within secure boundaries',
-      'Comprehensive security reporting and mitigation strategies'
+      'Efficient disjoint-set (Union-Find) data structure for Kruskal\'s',
+      'Priority queue implementation for Prim\'s algorithm',
+      'DIMACS format parser and performance benchmarking'
     ],
-    impactMetric: 'Cybersecurity',
-    impactLabel: 'Security Analysis',
-    technologies: ['Kali Linux', 'Penetration Testing', 'Security Assessment'],
+    impactMetric: 'Graph Theory',
+    impactLabel: 'MST Implementations',
+    technologies: ['C/C++', 'Graph Algorithms', 'Data Structures'],
     links: {
-      repository: 'https://github.com/MichaelFirstAC/Ethical-Hacking-Pentest-Report'
+      repository: 'https://github.com/MichaelFirstAC/Dimac-9th-Krus-Prim-Algorithm'
+    },
+    featured: false
+  },
+  {
+    id: 'project-solar-system-python',
+    title: '3D Solar System (Python)',
+    codeName: 'PYTHON GRAPHICS',
+    category: '3D & Graphics',
+    period: '2025',
+    summary:
+      'A 3D simulation of the solar system built entirely in Python, demonstrating orbital mechanics and planetary rendering using native Python libraries.',
+    fullDescription:
+      'A graphical simulation modeling the orbits and relative positions of celestial bodies in our solar system. Provides an educational view into physics simulation using Python-based graphics tools.',
+    architecturalHighlights: [
+      'Physics-based orbital calculations',
+      '3D rendering with Python graphical libraries',
+      'Interactive celestial simulation'
+    ],
+    impactMetric: 'Simulation',
+    impactLabel: 'Physics Modeling',
+    technologies: ['Python', '3D Graphics', 'Physics Simulation'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/3D_Solar_System_Python'
+    },
+    featured: false
+  },
+  {
+    id: 'project-wads-final',
+    title: 'WADS Final Project',
+    codeName: 'WADS CAPSTONE',
+    category: 'Web App',
+    period: '2025',
+    summary:
+      'The capstone project for the Web Application Development and Security (WADS) course, integrating robust frontend and backend technologies.',
+    fullDescription:
+      'A comprehensive web application demonstrating mastery of full-stack development. Integrates a responsive user interface with secure backend services, demonstrating modern web development best practices.',
+    architecturalHighlights: [
+      'Full-stack application architecture',
+      'Secure authentication and data handling',
+      'Responsive and interactive user interface'
+    ],
+    impactMetric: 'Full-Stack',
+    impactLabel: 'Web Capstone',
+    technologies: ['Web Technologies', 'Full-Stack', 'Security'],
+    links: {
+      repository: 'https://github.com/MichaelFirstAC/WADS_Final_Project'
     },
     featured: false
   }
