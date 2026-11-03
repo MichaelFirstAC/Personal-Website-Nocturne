@@ -434,7 +434,7 @@ export const initialProjects: Project[] = [
   },
   {
     id: 'project-wads-final',
-    title: 'WADS Final Project',
+    title: 'HelpImTooLazy',
     codeName: 'WADS CAPSTONE',
     category: 'Web App',
     period: '2025',
